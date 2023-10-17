@@ -1,0 +1,32 @@
+﻿@using Schm.EndUser.UI.Infrastructure.ViewModels
+@model CategoryViewModel
+
+@{
+    foreach (var item in Model.ItemCatagoryList)
+    {
+        <li class="item">
+    <a class="trs-3" href="/Shop/Index?categoryId=@item.Id">
+        <i class="fal fa-laptop"></i>
+        @item.Title
+        <span>
+            <i class="fal fa-chevron-down"></i>
+        </span>
+    </a>
+    <ul class="sub-menu">
+    @{
+        foreach (var sub in Model.ItemSubCatagoryList.Where(a=>a.ItemCatagoryId==item.Id))
+        {
+                    <li>
+            <a class="trs-3" href="/Shop/Index?subCategoryId=@sub.Id">
+                @sub.Title
+                <span>
+                    <i class="fal fa-chevron-down"></i>
+                </span>
+            </a>
+        </li>
+        }
+    }
+    </ul>
+</li>
+    }
+}

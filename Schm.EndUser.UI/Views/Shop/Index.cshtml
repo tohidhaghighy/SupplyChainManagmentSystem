@@ -1,0 +1,210 @@
+﻿@using Schm.EndUser.UI.Infrastructure.ViewModels
+@model List<SupplieItemViewModel>
+
+<div class="shop-product">
+    <div class="container">
+        <div class="address-bar">
+            <ul class="box-address">
+                <li class="item">
+                    <a class="trs-3" href="#">
+                        خانه
+                        <i class="fal fa-chevron-left"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="shop">
+            <div class="row">
+                <div class="col-xl-3 col-lg-4 order-2 order-lg-1">
+                    <div class="filter">
+
+                        <div class="pric">
+                            <div class="title">
+                                <h6>
+                                    براساس قیمت
+                                </h6>
+                            </div>
+                            <div class="pric-box">
+                                <div class="wrapper">
+                                    <div class="price-input">
+                                        <div class="field">
+                                            <input type="number" class="input-min" id="minCost" value="0">
+                                            <span>ریال</span>
+                                        </div>
+                                        <div class="separator">-</div>
+                                        <div class="field">
+                                            <input type="number" class="input-max" id="maxCost" value="30000000">
+                                            <span>ریال</span>
+                                        </div>
+                                    </div>
+                                    <div class="slider">
+                                        <div class="progress"></div>
+                                    </div>
+                                    <div class="range-input">
+                                        <input type="range" class="range-min" min="0" max="5000000000" value="5000000" step="1000">
+                                        <input type="range" class="range-max" min="0" max="5000000000" value="30000000" step="1000">
+                                    </div>
+                                </div>
+
+                                <span class="price-button">
+                                    <a class="trs-3" onclick="FilterCost()">
+                                        اعمال محدودیت
+                                    </a>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="brand">
+                            <div class="title">
+                                <h6>
+                                    براساس تامین کننده
+                                </h6>
+                            </div>
+                            <div class="brand-box">
+                                <label class="item">
+                                    میهن
+                                    <input type="checkbox">
+                                    <span class="tick">
+                                        <i class="fal fa-check"></i>
+                                    </span>
+                                </label>
+                                
+                            </div>
+                        </div>
+
+                        <div class="button-filter">
+                            <a class="trs-3" href="#">
+                                فیلتر
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-9 col-lg-8 order-lg-2">
+                    <div class="shop-content">
+                        <div class="tabs">
+                            <ul class="tabs-nav">
+                                <li class="title">
+                                    <span class="icon">
+                                        <i class="fas fa-sort-amount-down-alt"></i>
+                                    </span>
+                                    <p class="text">
+                                        مرتب سازی بر اساس
+                                    </p>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="trs-3" href="#tab-1">
+                                        جدیدترین
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="trs-3" href="#tab-2">
+                                        پرفروش ترین
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="trs-3" href="#tab-3">
+                                        ارزان ترین
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="trs-3" href="#tab-4">
+                                        گران ترین
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="trs-3" href="#tab-5">
+                                        پیشنهاد ویژه
+                                    </a>
+                                </li>
+                            </ul>
+
+                            <div class="tabs-stage">
+                                <div id="tab-1" class="item-tab">
+                                    <div class="products row">
+                                        @{
+                                            foreach (var item in Model)
+                                            {
+                                                <div class="col-xl-3 col-md-4 col-sm-6 col-6">
+                                                    <div class="item trs-3">
+                                                        <span class="pic-box">
+                                                            <img src="@item.Image" alt="@item.ItemName">
+                                                        </span>
+                                                        <div class="product-info">
+                                                            <span class="title-box mb-1">
+                                                                <a href="/Shop/Item?itemId=@item.ItemId&supplierId=@item.SupplierId" class="trs-3">
+                                                                    @item.ItemName
+                                                                </a>
+                                                            </span>
+                                                            <span class="category mb-3">
+                                                                کد : @item.ItemCode
+                                                            </span>
+                                                            <div class="product-bottom f-parent">
+                                                                <div class="pric">
+                                                                    <ins>
+                                                                        @item.Price ریال
+                                                                    </ins>
+                                                                </div>
+                                                            </div>
+                                                            <div class="actions trs-3">
+                                                                <div class="action-holder">
+                                                                    <span class="action-item">
+                                                                        <a href="/Shop/Item?itemId=@item.ItemId&supplierId=@item.SupplierId" class="trs-3">
+                                                                            <i class="fal fa-shopping-bag"></i>
+                                                                        </a>
+                                                                        <p class="tooltip-box trs-3">
+                                                                            افزودن به سبد خرید
+                                                                        </p>
+                                                                    </span>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <span class="discount">
+                                                            جدید
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            }
+                                        }
+
+                                    </div>
+
+                                    <div class="pagination">
+                                        <ul class="pagination-box">
+                                            <li class="item arrow">
+                                                <a class="trs-3" href="#">
+                                                    <i class="fal fa-chevron-right"></i>
+                                                </a>
+                                            </li>
+                                            <li class="item">
+                                                <a class="trs-3" href="#">
+                                                    1
+                                                </a>
+                                            </li>
+                                            <li class="item arrow">
+                                                <a class="trs-3" href="#">
+                                                    <i class="fal fa-chevron-left"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function FilterCost(){
+        var min=$('#minCost').val();
+        var max=$('#maxCost').val();
+        window.location.href="/Shop/Index?min="+min+"&max="+max;
+    }
+</script>

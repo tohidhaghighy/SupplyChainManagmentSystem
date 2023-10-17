@@ -1,0 +1,223 @@
+﻿@using Schm.UI.Infrastructure.ViewModels
+@model ItemViewModel
+
+<div class="row">
+    <div class="col-md-12">
+
+        <div class="card">
+            <div class="card-body">
+                <h6 class="card-title">ثبت کالا جدید</h6>
+                <form>
+                    <div class="row">
+                        <input type="hidden" value="@Model.Id" id="Id"/>
+                        <div class="col-md-6 col-sm-12 col-lg-6">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">عنوان </label>
+                                <input type="text" class="form-control text-left" id="title" placeholder="عنوان" dir="ltr" value="@Model.Title">
+                            </div>
+
+                        </div>
+                        <div class="col-md-6 col-sm-12 col-lg-6">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">کد استاندارد </label>
+                                <input type="text" class="form-control text-left" id="standardCode" placeholder="کد استاندارد" dir="ltr" value="@Model.StandardCode">
+                            </div>
+
+                        </div>
+                        <div class="col-md-6 col-sm-12 col-lg-6">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">کد داخلی </label>
+                                <input type="text" class="form-control text-left" id="internalCode" placeholder="کد داخلی" dir="ltr" value="@Model.InternalCode">
+                            </div>
+                        </div>
+
+                         <div class="col-md-12 col-sm-12 col-lg-12">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">توضیحات </label>
+                                <input type="text" class="form-control text-left" id="description" placeholder="توضیحات" dir="ltr" value="@Model.Description">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-sm-12 col-lg-6">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">برند  </label>
+                                <select class="form-control" name="selectedbrand" id="selectedbrand" onchange="BrandFilter(this)">
+                                    <option value="0"> انتخاب کنید ...  </option>
+                                    @{
+                                        foreach (var item in Model.BrandList)
+                                        {
+                                            if (item.Id==Model.BrandId)
+                                            {
+                                                 <option value="@item.Id" selected> @item.Title </option>
+                                            }
+                                            else
+                                            {
+                                                 <option value="@item.Id"> @item.Title </option>
+                                            }
+
+                                        }
+                                    }
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-sm-12 col-lg-6">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">مدل  </label>
+                                <select class="form-control" name="selectedmodel" id="selectedmodel">
+                                    @{
+                                        foreach (var item in Model.ModelTypeList)
+                                        {
+                                            if (item.Id==Model.ModelId)
+                                            {
+                                                 <option value="@item.Id" selected> @item.Title </option>
+                                            }
+                                            else
+                                            {
+                                                 <option value="@item.Id"> @item.Title </option>
+                                            }
+
+                                        }
+                                    }
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-sm-12 col-lg-6">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1"> مجموعه </label>
+                                <select class="form-control" name="selectedCategory" id="selectedCategory" onchange="CategoryFilter(this)">
+                                     <option value="0"> انتخاب کنید ...  </option>
+                                    @{
+                                        foreach (var item in Model.CategoryList)
+                                        {
+                                            if (item.Id==Model.CategoryId)
+                                            {
+                                                 <option value="@item.Id" selected> @item.Title </option>
+                                            }
+                                            else
+                                            {
+                                                 <option value="@item.Id"> @item.Title </option>
+                                            }
+
+                                        }
+                                    }
+                                </select>
+                            </div>
+                        </div>
+
+                       <div class="col-md-6 col-sm-12 col-lg-6">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1"> زیر مجموعه </label>
+                                <select class="form-control" name="selectedsubcategory" id="selectedsubcategory">
+                                    @{
+                                        foreach (var item in Model.SubCategoryList)
+                                        {
+                                            if (item.Id==Model.SubCategoryId)
+                                            {
+                                                 <option value="@item.Id" selected> @item.Title </option>
+                                            }
+                                            else
+                                            {
+                                                 <option value="@item.Id"> @item.Title </option>
+                                            }
+
+                                        }
+                                    }
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-sm-12 col-lg-6">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1"> واحد </label>
+                                <select class="form-control" name="selectedUnitItem" id="selectedUnitItem">
+                                    <option value="0"> انتخاب کنید ...  </option>
+                                    @{
+                                        foreach (var item in Model.UnitList)
+                                        {
+                                            if (item.Id==Model.UnitId)
+                                            {
+                                                 <option value="@item.Id" selected> @item.Title </option>
+                                            }
+                                            else
+                                            {
+                                                 <option value="@item.Id"> @item.Title </option>
+                                            }
+
+                                        }
+                                    }
+                                </select>
+                            </div>
+                        </div>
+
+                    </div>
+                    <a class="btn btn-primary float-left" onclick="insert()">ویرایش </a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script>
+    $(document).ready(function() {
+        BrandFilter(@Model.ModelId);
+        CategoryFilter(@Model.SubCategoryId);
+    });
+
+    function insert(){
+        toastr.options = {
+            timeOut: 3000,
+            progressBar: true,
+            showMethod: "slideDown",
+            hideMethod: "slideUp",
+            showDuration: 200,
+            hideDuration: 200
+        };
+
+        var id=$('#Id').val();
+        var title=$('#title').val();
+        var standardCode=$('#standardCode').val();
+        var internalCode=$('#internalCode').val();
+        var description=$('#description').val();
+        var e = document.getElementById("selectedmodel");
+        var selectedmodel = e.value;
+        var e = document.getElementById("selectedsubcategory");
+        var selectedSubCategory = e.value;
+        var e = document.getElementById("selectedUnitItem");
+        var selectedUnitItem = e.value;
+
+        if(title.length<3){toastr.error("نباید عنوان کوچکتر از 3 حرف باشد");return;}
+        if(standardCode.length<3){toastr.error("نباید کد استاندارد کوچکتر از 3 حرف باشد");return;}
+        if(selectedmodel=="0" || selectedmodel==""){toastr.error("مدلی انتخاب نشده است");return;}
+        if(selectedSubCategory=="0" || selectedSubCategory==""){toastr.error("زیر مجموعه انتخاب نشده است");return;}
+        if(selectedUnitItem=="0" || selectedUnitItem==""){toastr.error("واحد انتخاب نشده است");return;}
+
+        $.ajax({
+                 url: '/Item/Update?Id='+id+'&title='+title+'&standardCode='+standardCode+'&internalCode='+internalCode+'&modelId='+selectedmodel+'&subCategoryId='+selectedSubCategory+'&unitId='+selectedUnitItem+'&description='+description,
+                 type: 'POST',
+                 dataType: 'json',
+                 success: function (data) {
+                     if(data.status){
+                         toastr.success(data.message);
+                         window.location.href= '/Item/Index';
+                     }else{
+                         toastr.error(data.message);
+                     }
+                 },
+                 error: function (xhr, textStatus, errorThrown) {
+                     console.log('Error in Operation');
+                 }
+             });
+    }
+
+    function BrandFilter(item){
+        $('#selectedmodel').empty();
+        $('#selectedmodel').load('/Model/ModelList?brandId='+item.value);
+    }
+
+    function CategoryFilter(item){
+        $('#selectedSubCategory').empty();
+        $('#selectedSubCategory').load('/SubCategory/SubCategoryList?categoryId='+item.value);
+    }
+</script>

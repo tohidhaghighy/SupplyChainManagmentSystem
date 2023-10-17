@@ -1,0 +1,5 @@
+2023-04-26T12:15:25.7560741-07:00  [INF] Now listening on: "https://localhost:7025" (d826f4b8)
+2023-04-26T12:15:25.7642135-07:00  [INF] Now listening on: "http://localhost:5025" (d826f4b8)
+2023-04-26T12:15:25.7869488-07:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2023-04-26T12:15:25.7897737-07:00  [INF] Hosting environment: "Development" (c3307c92)
+2023-04-26T12:15:25.7925707-07:00  [INF] Content root path: "D:\Soleimani Project\Schm\Schm.UI\" (b5d60022)

@@ -1,0 +1,334 @@
+﻿<html>
+
+<head lang="fa">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 , maximum-scale=1">
+
+    <title>سامانه جامع زنجیره تامین</title>
+    <link rel="shortcut icon" href="~/img/favicon.ico">
+    <link rel="manifest" href="~/manifest.json" />
+    <!-- ios support -->
+    <link rel="apple-touch-icon" href="~/img/favicon.ico" />
+    <meta name="apple-mobile-web-app-status-bar" content="#db4938" />
+    <meta name="theme-color" content="#db4938" />
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="~/css/font-awesome.min.css">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="~/css/bootstrap.css" />
+
+    <!-- Plugins -->
+    <link rel="stylesheet" href="~/css/owl.carousel.min.css">
+
+    <!-- Main CSS File -->
+    <link rel="stylesheet" href="~/css/style.css" />
+    <link rel="stylesheet" href="~/css/colors/color-1.css" id="colorswitch" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+
+    <!--=============== CSS ===============-->
+    <link rel="stylesheet" href="~/assets/css/styles.css">
+</head>
+
+<body>
+
+    <!-- ---------- Loding ---------- -->
+    <div id="loading-wrapper">
+        <div class="content-loaging">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+    <!-- ---------- Header -------- d-none d-md-block-- -->
+
+    <div class="header shadows">
+        <div class="header-container">
+            <div class="tophead d-none d-sm-block">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-6">
+                            <p class="text">
+                                <!-- You can add text -->
+                            </p>
+                        </div>
+                        <div class="col-6">
+                            <ul class="th-menu">
+                                <li class="menu-item">
+                                    <a class="trs-3" href="/Home/AboutUs">
+                                        پیگیری سفارش
+                                    </a>
+                                </li>
+                                <li class="menu-item">
+                                    <a class="trs-3" href="/Home/ReturnItem">
+                                        بازگرداندن کالا
+                                    </a>
+                                </li>
+                                <li class="menu-item">
+                                    <a class="trs-3" href="/Home/Privacy">
+                                        حریم خصوصی
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="middle-menu">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-4 col-6">
+                            <div class="logo-top">
+                                <a href="/">
+                                    <img src="~/img/logo-top.png" style="height:50px;50px;"  alt="">
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-5 d-none d-lg-block">
+                        </div>
+
+                        <div class="col-lg-4 col-md-8 col-6">
+                            <div class="holder-left">
+                                <ul class="header-left">
+                                    <li class="hl-item h-account">
+                                        
+                                            @{
+                                            var username = Context.Session.GetString("Username");
+                                            if (username == null)
+                                                {
+                                                    <a href="https://localhost:7062/login?key=123" class="btn-account trs-3">
+                                                     <span class="ha-img">
+                                                <img src="~/img/login-icon.png" alt="">
+                                            </span>
+
+                                                        <span class="ha-title">
+                                                            <p class="hat-name" style="padding-top:10px;">
+                                                                سفارشات
+                                                            </p>
+                                                        </span>
+                                                        </a>
+                                                }
+                                                if (username!=null)
+                                                {
+                                                    <a href="/Panel/Index" class="btn-account trs-3">
+                                                    <span class="ha-img">
+                                                <img src="~/img/user-286.png" alt="">
+                                                </span>
+
+                                                <span class="ha-title">
+                                                <p class="hat-name">
+                                                    @username
+                                                </p>
+                                                <p class="hat-link trs-3">
+                                                مشاهده حساب
+                                                </p>
+                                                </span>
+                                                </a>
+                                                }
+                                                }
+                                          
+
+                                    </li>
+                                    <li class="hl-item h-cart d-none d-md-block">
+                                        <a href="/Cart/Index" class="hl-btn trs-3">
+                                            <i class="fal fa-shopping-bag"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="main-menu">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-10 col-6">
+                            <div class="holder-menu d-none d-lg-block">
+                                <ul class="menu">
+                                    <li class="menu-item">
+                                        <a href="/Shop/Index" class="menu-text trs-3">
+                                            محصولات
+                                            <i class="fal fa-chevron-down"></i>
+                                        </a>
+                                        <div class="mega-menu trs-3" id="categoryMenu">
+                                            
+                                        </div>
+
+                                    </li>
+                                    @*<li class="menu-item">
+                                        <a href="/Shop/SupplierList" class="menu-text trs-3">
+                                            تامین کننده ها
+                                            <i class="fal fa-chevron-down"></i>
+                                        </a>
+                                    </li>*@
+                                    <li class="menu-item">
+                                        <a href="/Shop/Index" class="menu-text trs-3">
+                                            پر فروش ترین ها
+                                        </a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a href="/Home/AboutUs" class="menu-text trs-3">
+                                            درباره ما
+                                        </a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a href="/Home/CallUs" class="menu-text trs-3">
+                                            تماس با ما
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- ---------- Mobile Menu ---------- -->
+                            <div class="mobile-menu d-block d-lg-none">
+                                <div class="btn-mobile">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                                <div class="mobile-content trs-5">
+                                    <div class="search">
+                                    </div>
+                                    <ul class="menu">
+                                        <li class="item">
+                                            <a class="trs-3" href="/Shop/Index">
+                                                محصولات
+                                            </a>
+                                        </li>
+                                        @*<li class="item">
+                                            <a class="trs-3" href="/Shop/SupplierList">
+                                                تامین کننده ها
+                                            </a>
+                                        </li>*@
+                                        <li class="item">
+                                            <a class="trs-3" href="/Home/AboutUs">
+                                                درباره ما
+                                            </a>
+                                        </li>
+                                        <li class="item">
+                                            <a class="trs-3" href="/Home/CallUs">
+                                                تماس با ما
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <ul class="category" id="categoryMobileMenu">
+
+                                    </ul>
+                                </div>
+                                <div class="menu-overlay trs-5"></div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-2 col-6">
+                            <span class="number-tel">
+                                <p>
+                                    0912-1234567
+                                    <i class="fal fa-phone-rotary"></i>
+                                </p>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ---------- Body ---------- -->
+    @RenderBody()
+
+
+
+    <div style="z-index: 100000;">
+        <div class="nav__menu" id="nav-menu" style="z-index: 1000000;">
+            <ul class="nav__list">
+                <li class="nav__item">
+                    <a href="/" class="nav__link">
+                        <i class='bx bx-home-alt fa fa-home'></i>
+                        <span class="nav__name">صفحه اصلی</span>
+                    </a>
+                </li>
+
+                <li class="nav__item">
+                    <a href="/Panel/Index" class="nav__link">
+                        <i class='bx bx-list-ol fa fa-list'></i>
+                        <span class="nav__name">سفارشات</span>
+                    </a>
+                </li>
+
+                <li class="nav__item">
+                    <a href="/Cart/Index" class="nav__link">
+                        <i class='bx bx-cart-alt fa fa-store'></i>
+                        <span class="nav__name">سبد خرید</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+    <!-- ---------- Footer ---------- -->
+    <div class="footer">
+        <div class="holder-footer">
+
+            <div class="footer-content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 col-md-12">
+                            <div class="description">
+                                <h6 class="title mb-3">
+                                    سفارش انلاین طرح های فروش
+                                </h6>
+                                <p class="text">
+                                    سفارش انلاین و پرداخت با چک و به صورت اعتباری
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-12">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>
+                    کلیه حقوق مادی و معنوی در اختیار شرکت سامانه جامع زنجیره تامین می باشد
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <!-- ---------- Back to top ---------- -->
+    <a id="tops-button" class="top-scroll trs-3" href="#">
+        <i class="fal fa-chevron-up"></i>
+    </a>
+
+    <!-- JS Files -->
+    <script src="~/js/jquery-3.6.1.min.js"></script>
+    <script src="~/js/bootstrap.js"></script>
+
+    <!-- Plugins -->
+    <script src="~/js/owl.carousel.min.js"></script>
+    <script src="~/js/jquery.countdown.js"></script>
+
+    <!-- Main JS File -->
+    <script src="~/js/main.js"></script>
+    <script src="~/assets/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+                $('#cartList').load('/Basket/List');
+                $('#categoryMobileMenu').load('/ItemCategory/MenuList?type=mobile');
+                $('#categoryMenu').load('/ItemCategory/MenuList?type=desktop');
+        });
+    </script>
+
+</body>
+
+</html>

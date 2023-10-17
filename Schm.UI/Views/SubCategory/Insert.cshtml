@@ -1,0 +1,58 @@
+﻿
+<div class="row">
+    <div class="col-md-12">
+
+        <div class="card">
+            <div class="card-body">
+                <h6 class="card-title">ثبت دسته جدید</h6>
+                <form>
+                    <div class="row">
+                        <div class="col-md-6 col-sm-12 col-lg-6">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">عنوان </label>
+                                <input type="text" class="form-control text-left" id="title" placeholder="عنوان" dir="ltr">
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <a class="btn btn-primary float-left" onclick="insert()">ثبت </a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script>
+                function insert(){
+                        toastr.options = {
+                            timeOut: 3000,
+                            progressBar: true,
+                            showMethod: "slideDown",
+                            hideMethod: "slideUp",
+                            showDuration: 200,
+                            hideDuration: 200
+                        };
+
+
+                    var title=$('#title').val();
+
+                    if(title.length<3){toastr.error("نباید عنوان کوچکتر از 3 حرف باشد");return;}
+
+                    $.ajax({
+                             url: '/SubCategory/Insert?title='+title+'&categoryId=@Context.Request.Query["categoryId"]',
+                             type: 'POST',
+                             dataType: 'json',
+                             success: function (data) {
+                                 if(data.status){
+                                     toastr.success(data.message);
+                                     window.location.href= '/SubCategory/Index?categoryId=@Context.Request.Query["categoryId"]';
+                                 }else{
+                                     toastr.error(data.message);
+                                 }
+                             },
+                             error: function (xhr, textStatus, errorThrown) {
+                                 console.log('Error in Operation');
+                             }
+                         });
+                }
+    </script>

@@ -1,0 +1,511 @@
+2023-04-29T11:36:04.3873826-07:00 0HMQ8S29514B3:00000002 [INF] Executed DbCommand ("80"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[ImageUrl], [i].[IsActive], [i].[Title]
+FROM [ItemCatagory] AS [i]" (0723d8ff)
+2023-04-29T11:36:07.3232750-07:00 0HMQ8S29514B4:00000002 [INF] Executed DbCommand ("17"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[Description], [b].[ImageUrl], [b].[IsActive], [b].[Title]
+FROM [BrandType] AS [b]" (0723d8ff)
+2023-04-29T11:36:08.7080871-07:00 0HMQ8S29514B5:00000002 [INF] Executed DbCommand ("13"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [s].[Id], [s].[DefaultImage], [s].[InsertedDate], [s].[InventoryCount], [s].[IsActive], [s].[IsExist], [s].[ItemId], [s].[Price], [s].[SupplierId], [s].[UpdatedDate], [s].[ViewerCount], [s0].[Id], [s0].[IsActive], [s0].[Name], [s0].[Token], [i].[Id], [i].[Description], [i].[InternalCode], [i].[IsActive], [i].[ItemSubCatagoryId], [i].[ItemUnitTypeId], [i].[ModelTypeId], [i].[StandardCode], [i].[Title]
+FROM [SupplierItem] AS [s]
+INNER JOIN [Supplier] AS [s0] ON [s].[SupplierId] = [s0].[Id]
+INNER JOIN [Items] AS [i] ON [s].[ItemId] = [i].[Id]
+WHERE [s].[InventoryCount] > 0 AND [s].[Price] > 0.0E0" (0723d8ff)
+2023-04-29T11:36:09.3878196-07:00 0HMQ8S29514B5:00000002 [INF] Executed DbCommand ("274"ms) [Parameters=["@__item_Id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[ImageUrl], [i].[IsActive], [i].[ItemId]
+FROM [ItemImage] AS [i]
+WHERE [i].[ItemId] = @__item_Id_0" (0723d8ff)
+2023-04-29T11:36:16.1729872-07:00 0HMQ8S29514B5:00000002 [ERR] An unhandled exception has occurred while executing the request. (48a46595)
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at Schm.Api.Controllers.SupplierItemController.SearchForStore(SearchSupplierItemCntxDto SearchCntx) in D:\Soleimani Project\Schm\LTMS.Api\Controllers\SupplierItemController.cs:line 98
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2023-04-29T11:36:42.9174821-07:00 0HMQ8S29514B6:00000002 [INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[ImageUrl], [i].[IsActive], [i].[Title]
+FROM [ItemCatagory] AS [i]" (0723d8ff)
+2023-04-29T11:36:43.1599608-07:00 0HMQ8S29514B7:00000002 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[Description], [b].[ImageUrl], [b].[IsActive], [b].[Title]
+FROM [BrandType] AS [b]" (0723d8ff)
+2023-04-29T11:36:43.3555239-07:00 0HMQ8S29514B8:00000002 [INF] Executed DbCommand ("14"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [s].[Id], [s].[DefaultImage], [s].[InsertedDate], [s].[InventoryCount], [s].[IsActive], [s].[IsExist], [s].[ItemId], [s].[Price], [s].[SupplierId], [s].[UpdatedDate], [s].[ViewerCount], [s0].[Id], [s0].[IsActive], [s0].[Name], [s0].[Token], [i].[Id], [i].[Description], [i].[InternalCode], [i].[IsActive], [i].[ItemSubCatagoryId], [i].[ItemUnitTypeId], [i].[ModelTypeId], [i].[StandardCode], [i].[Title]
+FROM [SupplierItem] AS [s]
+INNER JOIN [Supplier] AS [s0] ON [s].[SupplierId] = [s0].[Id]
+INNER JOIN [Items] AS [i] ON [s].[ItemId] = [i].[Id]
+WHERE [s].[InventoryCount] > 0 AND [s].[Price] > 0.0E0" (0723d8ff)
+2023-04-29T11:36:43.3633465-07:00 0HMQ8S29514B8:00000002 [INF] Executed DbCommand ("3"ms) [Parameters=["@__item_Id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[ImageUrl], [i].[IsActive], [i].[ItemId]
+FROM [ItemImage] AS [i]
+WHERE [i].[ItemId] = @__item_Id_0" (0723d8ff)
+2023-04-29T11:38:51.6853776-07:00 0HMQ8S3RMTKSB:00000002 [INF] Executed DbCommand ("94"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[ImageUrl], [i].[IsActive], [i].[Title]
+FROM [ItemCatagory] AS [i]" (0723d8ff)
+2023-04-29T11:38:53.2071268-07:00 0HMQ8S3RMTKSC:00000002 [INF] Executed DbCommand ("10"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[Description], [b].[ImageUrl], [b].[IsActive], [b].[Title]
+FROM [BrandType] AS [b]" (0723d8ff)
+2023-04-29T11:38:54.4831981-07:00 0HMQ8S3RMTKSD:00000002 [INF] Executed DbCommand ("14"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [s].[Id], [s].[DefaultImage], [s].[InsertedDate], [s].[InventoryCount], [s].[IsActive], [s].[IsExist], [s].[ItemId], [s].[Price], [s].[SupplierId], [s].[UpdatedDate], [s].[ViewerCount], [s0].[Id], [s0].[IsActive], [s0].[Name], [s0].[Token], [i].[Id], [i].[Description], [i].[InternalCode], [i].[IsActive], [i].[ItemSubCatagoryId], [i].[ItemUnitTypeId], [i].[ModelTypeId], [i].[StandardCode], [i].[Title]
+FROM [SupplierItem] AS [s]
+INNER JOIN [Supplier] AS [s0] ON [s].[SupplierId] = [s0].[Id]
+INNER JOIN [Items] AS [i] ON [s].[ItemId] = [i].[Id]
+WHERE [s].[InventoryCount] > 0 AND [s].[Price] > 0.0E0" (0723d8ff)
+2023-04-29T11:38:56.6494543-07:00 0HMQ8S3RMTKSD:00000002 [INF] Executed DbCommand ("97"ms) [Parameters=["@__item_Id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[ImageUrl], [i].[IsActive], [i].[ItemId]
+FROM [ItemImage] AS [i]
+WHERE [i].[ItemId] = @__item_Id_0" (0723d8ff)
+2023-04-29T11:39:57.4544675-07:00 0HMQ8S4FALQJ7:00000002 [INF] Executed DbCommand ("94"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[ImageUrl], [i].[IsActive], [i].[Title]
+FROM [ItemCatagory] AS [i]" (0723d8ff)
+2023-04-29T11:39:58.9769192-07:00 0HMQ8S4FALQJ8:00000002 [INF] Executed DbCommand ("9"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[Description], [b].[ImageUrl], [b].[IsActive], [b].[Title]
+FROM [BrandType] AS [b]" (0723d8ff)
+2023-04-29T11:40:00.3422609-07:00 0HMQ8S4FALQJ9:00000002 [INF] Executed DbCommand ("9"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [s].[Id], [s].[DefaultImage], [s].[InsertedDate], [s].[InventoryCount], [s].[IsActive], [s].[IsExist], [s].[ItemId], [s].[Price], [s].[SupplierId], [s].[UpdatedDate], [s].[ViewerCount], [s0].[Id], [s0].[IsActive], [s0].[Name], [s0].[Token], [i].[Id], [i].[Description], [i].[InternalCode], [i].[IsActive], [i].[ItemSubCatagoryId], [i].[ItemUnitTypeId], [i].[ModelTypeId], [i].[StandardCode], [i].[Title]
+FROM [SupplierItem] AS [s]
+INNER JOIN [Supplier] AS [s0] ON [s].[SupplierId] = [s0].[Id]
+INNER JOIN [Items] AS [i] ON [s].[ItemId] = [i].[Id]
+WHERE [s].[InventoryCount] > 0 AND [s].[Price] > 0.0E0" (0723d8ff)
+2023-04-29T11:40:02.3746419-07:00 0HMQ8S4FALQJ9:00000002 [INF] Executed DbCommand ("76"ms) [Parameters=["@__item_Id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[ImageUrl], [i].[IsActive], [i].[ItemId]
+FROM [ItemImage] AS [i]
+WHERE [i].[ItemId] = @__item_Id_0" (0723d8ff)
+2023-04-29T11:40:44.7113013-07:00 0HMQ8S4TCOIH4:00000002 [INF] Executed DbCommand ("125"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[ImageUrl], [i].[IsActive], [i].[Title]
+FROM [ItemCatagory] AS [i]" (0723d8ff)
+2023-04-29T11:40:46.2918004-07:00 0HMQ8S4TCOIH5:00000002 [INF] Executed DbCommand ("8"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[Description], [b].[ImageUrl], [b].[IsActive], [b].[Title]
+FROM [BrandType] AS [b]" (0723d8ff)
+2023-04-29T11:40:47.5365163-07:00 0HMQ8S4TCOIH6:00000002 [INF] Executed DbCommand ("13"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [s].[Id], [s].[DefaultImage], [s].[InsertedDate], [s].[InventoryCount], [s].[IsActive], [s].[IsExist], [s].[ItemId], [s].[Price], [s].[SupplierId], [s].[UpdatedDate], [s].[ViewerCount], [s0].[Id], [s0].[IsActive], [s0].[Name], [s0].[Token], [i].[Id], [i].[Description], [i].[InternalCode], [i].[IsActive], [i].[ItemSubCatagoryId], [i].[ItemUnitTypeId], [i].[ModelTypeId], [i].[StandardCode], [i].[Title]
+FROM [SupplierItem] AS [s]
+INNER JOIN [Supplier] AS [s0] ON [s].[SupplierId] = [s0].[Id]
+INNER JOIN [Items] AS [i] ON [s].[ItemId] = [i].[Id]
+WHERE [s].[InventoryCount] > 0 AND [s].[Price] > 0.0E0" (0723d8ff)
+2023-04-29T11:40:49.9768471-07:00 0HMQ8S4TCOIH6:00000002 [INF] Executed DbCommand ("61"ms) [Parameters=["@__item_Id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[ImageUrl], [i].[IsActive], [i].[ItemId]
+FROM [ItemImage] AS [i]
+WHERE [i].[ItemId] = @__item_Id_0" (0723d8ff)
+2023-04-29T11:40:49.9862708-07:00 0HMQ8S4TCOIH6:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=["@__item_Id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[ImageUrl], [i].[IsActive], [i].[ItemId]
+FROM [ItemImage] AS [i]
+WHERE [i].[ItemId] = @__item_Id_0" (0723d8ff)
+2023-04-29T11:40:56.1216473-07:00 0HMQ8S4TCOIHB:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[ImageUrl], [i].[IsActive], [i].[Title]
+FROM [ItemCatagory] AS [i]" (0723d8ff)
+2023-04-29T11:40:56.1298384-07:00 0HMQ8S4TCOIHA:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[ImageUrl], [i].[IsActive], [i].[Title]
+FROM [ItemCatagory] AS [i]" (0723d8ff)
+2023-04-29T11:40:56.2036399-07:00 0HMQ8S4TCOIHC:00000002 [INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[IsActive], [i].[ItemCatagoryId], [i].[Title]
+FROM [ItemSubCatagory] AS [i]" (0723d8ff)
+2023-04-29T11:40:56.2084899-07:00 0HMQ8S4TCOIHD:00000002 [INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[IsActive], [i].[ItemCatagoryId], [i].[Title]
+FROM [ItemSubCatagory] AS [i]" (0723d8ff)
+2023-04-29T11:46:56.7679824-07:00 0HMQ8S8CG3DRG:00000002 [INF] Executed DbCommand ("112"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[ImageUrl], [i].[IsActive], [i].[Title]
+FROM [ItemCatagory] AS [i]" (0723d8ff)
+2023-04-29T11:46:58.1381576-07:00 0HMQ8S8CG3DRH:00000002 [INF] Executed DbCommand ("5"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[Description], [b].[ImageUrl], [b].[IsActive], [b].[Title]
+FROM [BrandType] AS [b]" (0723d8ff)
+2023-04-29T11:46:59.0633482-07:00 0HMQ8S8CG3DRI:00000002 [INF] Executed DbCommand ("9"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [s].[Id], [s].[DefaultImage], [s].[InsertedDate], [s].[InventoryCount], [s].[IsActive], [s].[IsExist], [s].[ItemId], [s].[Price], [s].[SupplierId], [s].[UpdatedDate], [s].[ViewerCount], [s0].[Id], [s0].[IsActive], [s0].[Name], [s0].[Token], [i].[Id], [i].[Description], [i].[InternalCode], [i].[IsActive], [i].[ItemSubCatagoryId], [i].[ItemUnitTypeId], [i].[ModelTypeId], [i].[StandardCode], [i].[Title]
+FROM [SupplierItem] AS [s]
+INNER JOIN [Supplier] AS [s0] ON [s].[SupplierId] = [s0].[Id]
+INNER JOIN [Items] AS [i] ON [s].[ItemId] = [i].[Id]
+WHERE [s].[InventoryCount] > 0 AND [s].[Price] > 0.0E0" (0723d8ff)
+2023-04-29T11:47:52.9127297-07:00 0HMQ8S8T5CODO:00000002 [INF] Executed DbCommand ("120"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[ImageUrl], [i].[IsActive], [i].[Title]
+FROM [ItemCatagory] AS [i]" (0723d8ff)
+2023-04-29T11:47:54.3938271-07:00 0HMQ8S8T5CODP:00000002 [INF] Executed DbCommand ("6"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[Description], [b].[ImageUrl], [b].[IsActive], [b].[Title]
+FROM [BrandType] AS [b]" (0723d8ff)
+2023-04-29T11:47:55.5348981-07:00 0HMQ8S8T5CODQ:00000002 [INF] Executed DbCommand ("12"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [s].[Id], [s].[DefaultImage], [s].[InsertedDate], [s].[InventoryCount], [s].[IsActive], [s].[IsExist], [s].[ItemId], [s].[Price], [s].[SupplierId], [s].[UpdatedDate], [s].[ViewerCount], [s0].[Id], [s0].[IsActive], [s0].[Name], [s0].[Token], [i].[Id], [i].[Description], [i].[InternalCode], [i].[IsActive], [i].[ItemSubCatagoryId], [i].[ItemUnitTypeId], [i].[ModelTypeId], [i].[StandardCode], [i].[Title]
+FROM [SupplierItem] AS [s]
+INNER JOIN [Supplier] AS [s0] ON [s].[SupplierId] = [s0].[Id]
+INNER JOIN [Items] AS [i] ON [s].[ItemId] = [i].[Id]
+WHERE [s].[InventoryCount] > 0 AND [s].[Price] > 0.0E0" (0723d8ff)
+2023-04-29T11:52:26.4587069-07:00 0HMQ8SBEC911K:00000002 [INF] Executed DbCommand ("68"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[ImageUrl], [i].[IsActive], [i].[Title]
+FROM [ItemCatagory] AS [i]" (0723d8ff)
+2023-04-29T11:52:27.7483311-07:00 0HMQ8SBEC911L:00000002 [INF] Executed DbCommand ("6"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[Description], [b].[ImageUrl], [b].[IsActive], [b].[Title]
+FROM [BrandType] AS [b]" (0723d8ff)
+2023-04-29T11:52:28.6143250-07:00 0HMQ8SBEC911M:00000002 [INF] Executed DbCommand ("10"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [s].[Id], [s].[DefaultImage], [s].[InsertedDate], [s].[InventoryCount], [s].[IsActive], [s].[IsExist], [s].[ItemId], [s].[Price], [s].[SupplierId], [s].[UpdatedDate], [s].[ViewerCount], [s0].[Id], [s0].[IsActive], [s0].[Name], [s0].[Token], [i].[Id], [i].[Description], [i].[InternalCode], [i].[IsActive], [i].[ItemSubCatagoryId], [i].[ItemUnitTypeId], [i].[ModelTypeId], [i].[StandardCode], [i].[Title]
+FROM [SupplierItem] AS [s]
+INNER JOIN [Supplier] AS [s0] ON [s].[SupplierId] = [s0].[Id]
+INNER JOIN [Items] AS [i] ON [s].[ItemId] = [i].[Id]
+WHERE [s].[InventoryCount] > 0 AND [s].[Price] > 0.0E0" (0723d8ff)
+2023-04-29T11:52:37.0288484-07:00 0HMQ8SBEC911M:00000002 [INF] Executed DbCommand ("182"ms) [Parameters=["@__item_Id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[ImageUrl], [i].[IsActive], [i].[ItemId]
+FROM [ItemImage] AS [i]
+WHERE [i].[ItemId] = @__item_Id_0" (0723d8ff)
+2023-04-29T11:52:37.0484278-07:00 0HMQ8SBEC911M:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=["@__item_Id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[ImageUrl], [i].[IsActive], [i].[ItemId]
+FROM [ItemImage] AS [i]
+WHERE [i].[ItemId] = @__item_Id_0" (0723d8ff)
+2023-04-29T11:52:42.5581362-07:00 0HMQ8SBEC911O:00000002 [INF] Executed DbCommand ("73"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[ImageUrl], [i].[IsActive], [i].[Title]
+FROM [ItemCatagory] AS [i]" (0723d8ff)
+2023-04-29T11:52:42.6191574-07:00 0HMQ8SBEC911P:00000002 [INF] Executed DbCommand ("16"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[ImageUrl], [i].[IsActive], [i].[Title]
+FROM [ItemCatagory] AS [i]" (0723d8ff)
+2023-04-29T11:52:42.7451936-07:00 0HMQ8SBEC911R:00000002 [INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[IsActive], [i].[ItemCatagoryId], [i].[Title]
+FROM [ItemSubCatagory] AS [i]" (0723d8ff)
+2023-04-29T11:52:42.7925272-07:00 0HMQ8SBEC911Q:00000002 [INF] Executed DbCommand ("7"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[IsActive], [i].[ItemCatagoryId], [i].[Title]
+FROM [ItemSubCatagory] AS [i]" (0723d8ff)
+2023-04-29T11:54:47.7920901-07:00 0HMQ8SCOUFUOA:00000002 [INF] Executed DbCommand ("110"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[ImageUrl], [i].[IsActive], [i].[Title]
+FROM [ItemCatagory] AS [i]" (0723d8ff)
+2023-04-29T11:54:49.6178987-07:00 0HMQ8SCOUFUOB:00000002 [INF] Executed DbCommand ("10"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[Description], [b].[ImageUrl], [b].[IsActive], [b].[Title]
+FROM [BrandType] AS [b]" (0723d8ff)
+2023-04-29T11:54:51.3286308-07:00 0HMQ8SCOUFUOC:00000002 [INF] Executed DbCommand ("8"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [s].[Id], [s].[DefaultImage], [s].[InsertedDate], [s].[InventoryCount], [s].[IsActive], [s].[IsExist], [s].[ItemId], [s].[Price], [s].[SupplierId], [s].[UpdatedDate], [s].[ViewerCount], [s0].[Id], [s0].[IsActive], [s0].[Name], [s0].[Token], [i].[Id], [i].[Description], [i].[InternalCode], [i].[IsActive], [i].[ItemSubCatagoryId], [i].[ItemUnitTypeId], [i].[ModelTypeId], [i].[StandardCode], [i].[Title]
+FROM [SupplierItem] AS [s]
+INNER JOIN [Supplier] AS [s0] ON [s].[SupplierId] = [s0].[Id]
+INNER JOIN [Items] AS [i] ON [s].[ItemId] = [i].[Id]
+WHERE [s].[InventoryCount] > 0 AND [s].[Price] > 0.0E0" (0723d8ff)
+2023-04-29T11:54:56.8669231-07:00 0HMQ8SCOUFUOC:00000002 [INF] Executed DbCommand ("87"ms) [Parameters=["@__item_Id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[ImageUrl], [i].[IsActive], [i].[ItemId]
+FROM [ItemImage] AS [i]
+WHERE [i].[ItemId] = @__item_Id_0" (0723d8ff)
+2023-04-29T11:54:56.8839509-07:00 0HMQ8SCOUFUOC:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=["@__item_Id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[ImageUrl], [i].[IsActive], [i].[ItemId]
+FROM [ItemImage] AS [i]
+WHERE [i].[ItemId] = @__item_Id_0" (0723d8ff)
+2023-04-29T11:55:01.5311844-07:00 0HMQ8SCOUFUOE:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[ImageUrl], [i].[IsActive], [i].[Title]
+FROM [ItemCatagory] AS [i]" (0723d8ff)
+2023-04-29T11:55:01.5383505-07:00 0HMQ8SCOUFUOF:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[ImageUrl], [i].[IsActive], [i].[Title]
+FROM [ItemCatagory] AS [i]" (0723d8ff)
+2023-04-29T11:55:01.6194840-07:00 0HMQ8SCOUFUOG:00000002 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[IsActive], [i].[ItemCatagoryId], [i].[Title]
+FROM [ItemSubCatagory] AS [i]" (0723d8ff)
+2023-04-29T11:55:01.6245062-07:00 0HMQ8SCOUFUOH:00000002 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[IsActive], [i].[ItemCatagoryId], [i].[Title]
+FROM [ItemSubCatagory] AS [i]" (0723d8ff)
+2023-04-29T11:57:46.1525863-07:00 0HMQ8SCOUFUOJ:00000002 [INF] Executed DbCommand ("19"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[ImageUrl], [i].[IsActive], [i].[Title]
+FROM [ItemCatagory] AS [i]" (0723d8ff)
+2023-04-29T11:57:46.1579486-07:00 0HMQ8SCOUFUOI:00000002 [INF] Executed DbCommand ("18"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[ImageUrl], [i].[IsActive], [i].[Title]
+FROM [ItemCatagory] AS [i]" (0723d8ff)
+2023-04-29T11:57:46.2806425-07:00 0HMQ8SCOUFUOL:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[IsActive], [i].[ItemCatagoryId], [i].[Title]
+FROM [ItemSubCatagory] AS [i]" (0723d8ff)
+2023-04-29T11:57:46.2845605-07:00 0HMQ8SCOUFUOK:00000002 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[IsActive], [i].[ItemCatagoryId], [i].[Title]
+FROM [ItemSubCatagory] AS [i]" (0723d8ff)
+2023-04-29T12:05:50.7526851-07:00 0HMQ8SITS5UU6:00000002 [INF] Executed DbCommand ("155"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[ImageUrl], [i].[IsActive], [i].[Title]
+FROM [ItemCatagory] AS [i]" (0723d8ff)
+2023-04-29T12:05:52.3953867-07:00 0HMQ8SITS5UU7:00000002 [INF] Executed DbCommand ("9"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[Description], [b].[ImageUrl], [b].[IsActive], [b].[Title]
+FROM [BrandType] AS [b]" (0723d8ff)
+2023-04-29T12:05:53.6389005-07:00 0HMQ8SITS5UU8:00000002 [INF] Executed DbCommand ("12"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [s].[Id], [s].[DefaultImage], [s].[InsertedDate], [s].[InventoryCount], [s].[IsActive], [s].[IsExist], [s].[ItemId], [s].[Price], [s].[SupplierId], [s].[UpdatedDate], [s].[ViewerCount], [s0].[Id], [s0].[IsActive], [s0].[Name], [s0].[Token], [i].[Id], [i].[Description], [i].[InternalCode], [i].[IsActive], [i].[ItemSubCatagoryId], [i].[ItemUnitTypeId], [i].[ModelTypeId], [i].[StandardCode], [i].[Title]
+FROM [SupplierItem] AS [s]
+INNER JOIN [Supplier] AS [s0] ON [s].[SupplierId] = [s0].[Id]
+INNER JOIN [Items] AS [i] ON [s].[ItemId] = [i].[Id]
+WHERE [s].[InventoryCount] > 0 AND [s].[Price] > 0.0E0" (0723d8ff)
+2023-04-29T12:06:00.2804322-07:00 0HMQ8SITS5UU8:00000002 [INF] Executed DbCommand ("68"ms) [Parameters=["@__item_Id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[ImageUrl], [i].[IsActive], [i].[ItemId]
+FROM [ItemImage] AS [i]
+WHERE [i].[ItemId] = @__item_Id_0" (0723d8ff)
+2023-04-29T12:06:00.2964396-07:00 0HMQ8SITS5UU8:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=["@__item_Id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[ImageUrl], [i].[IsActive], [i].[ItemId]
+FROM [ItemImage] AS [i]
+WHERE [i].[ItemId] = @__item_Id_0" (0723d8ff)
+2023-04-29T12:06:01.6694284-07:00 0HMQ8SITS5UUA:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[ImageUrl], [i].[IsActive], [i].[Title]
+FROM [ItemCatagory] AS [i]" (0723d8ff)
+2023-04-29T12:06:01.6871153-07:00 0HMQ8SITS5UU9:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[ImageUrl], [i].[IsActive], [i].[Title]
+FROM [ItemCatagory] AS [i]" (0723d8ff)
+2023-04-29T12:06:01.8063824-07:00 0HMQ8SITS5UUB:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[IsActive], [i].[ItemCatagoryId], [i].[Title]
+FROM [ItemSubCatagory] AS [i]" (0723d8ff)
+2023-04-29T12:06:01.8091066-07:00 0HMQ8SITS5UUC:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[IsActive], [i].[ItemCatagoryId], [i].[Title]
+FROM [ItemSubCatagory] AS [i]" (0723d8ff)
+2023-04-29T12:06:10.1425976-07:00 0HMQ8SITS5UUD:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[ImageUrl], [i].[IsActive], [i].[Title]
+FROM [ItemCatagory] AS [i]" (0723d8ff)
+2023-04-29T12:06:10.1464233-07:00 0HMQ8SITS5UUE:00000002 [INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[ImageUrl], [i].[IsActive], [i].[Title]
+FROM [ItemCatagory] AS [i]" (0723d8ff)
+2023-04-29T12:06:10.2164490-07:00 0HMQ8SITS5UUG:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[IsActive], [i].[ItemCatagoryId], [i].[Title]
+FROM [ItemSubCatagory] AS [i]" (0723d8ff)
+2023-04-29T12:06:10.2240284-07:00 0HMQ8SITS5UUF:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[IsActive], [i].[ItemCatagoryId], [i].[Title]
+FROM [ItemSubCatagory] AS [i]" (0723d8ff)
+2023-04-29T12:06:31.5441835-07:00 0HMQ8SITS5UUH:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[ImageUrl], [i].[IsActive], [i].[Title]
+FROM [ItemCatagory] AS [i]" (0723d8ff)
+2023-04-29T12:06:31.6024142-07:00 0HMQ8SITS5UUI:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[ImageUrl], [i].[IsActive], [i].[Title]
+FROM [ItemCatagory] AS [i]" (0723d8ff)
+2023-04-29T12:06:31.6813599-07:00 0HMQ8SITS5UUJ:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[IsActive], [i].[ItemCatagoryId], [i].[Title]
+FROM [ItemSubCatagory] AS [i]" (0723d8ff)
+2023-04-29T12:06:31.7055264-07:00 0HMQ8SITS5UUK:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[IsActive], [i].[ItemCatagoryId], [i].[Title]
+FROM [ItemSubCatagory] AS [i]" (0723d8ff)
+2023-04-29T12:06:37.5518390-07:00 0HMQ8SITS5UUL:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[ImageUrl], [i].[IsActive], [i].[Title]
+FROM [ItemCatagory] AS [i]" (0723d8ff)
+2023-04-29T12:06:37.5555602-07:00 0HMQ8SITS5UUM:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[ImageUrl], [i].[IsActive], [i].[Title]
+FROM [ItemCatagory] AS [i]" (0723d8ff)
+2023-04-29T12:06:37.8033078-07:00 0HMQ8SITS5UUN:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[IsActive], [i].[ItemCatagoryId], [i].[Title]
+FROM [ItemSubCatagory] AS [i]" (0723d8ff)
+2023-04-29T12:06:37.8227471-07:00 0HMQ8SITS5UUO:00000002 [INF] Executed DbCommand ("6"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[IsActive], [i].[ItemCatagoryId], [i].[Title]
+FROM [ItemSubCatagory] AS [i]" (0723d8ff)
+2023-04-29T12:06:45.6863807-07:00 0HMQ8SITS5UUP:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[ImageUrl], [i].[IsActive], [i].[Title]
+FROM [ItemCatagory] AS [i]" (0723d8ff)
+2023-04-29T12:06:45.6907338-07:00 0HMQ8SITS5UUQ:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[ImageUrl], [i].[IsActive], [i].[Title]
+FROM [ItemCatagory] AS [i]" (0723d8ff)
+2023-04-29T12:06:45.7800111-07:00 0HMQ8SITS5UUS:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[IsActive], [i].[ItemCatagoryId], [i].[Title]
+FROM [ItemSubCatagory] AS [i]" (0723d8ff)
+2023-04-29T12:06:45.7848010-07:00 0HMQ8SITS5UUR:00000002 [INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[IsActive], [i].[ItemCatagoryId], [i].[Title]
+FROM [ItemSubCatagory] AS [i]" (0723d8ff)
+2023-04-29T12:06:57.0457183-07:00 0HMQ8SITS5UUU:00000002 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[ImageUrl], [i].[IsActive], [i].[Title]
+FROM [ItemCatagory] AS [i]" (0723d8ff)
+2023-04-29T12:06:57.0493755-07:00 0HMQ8SITS5UUT:00000002 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[ImageUrl], [i].[IsActive], [i].[Title]
+FROM [ItemCatagory] AS [i]" (0723d8ff)
+2023-04-29T12:06:57.1200679-07:00 0HMQ8SITS5UUV:00000002 [INF] Executed DbCommand ("26"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[IsActive], [i].[ItemCatagoryId], [i].[Title]
+FROM [ItemSubCatagory] AS [i]" (0723d8ff)
+2023-04-29T12:06:57.1262036-07:00 0HMQ8SITS5UV0:00000002 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[IsActive], [i].[ItemCatagoryId], [i].[Title]
+FROM [ItemSubCatagory] AS [i]" (0723d8ff)
+2023-04-29T12:07:00.7563053-07:00 0HMQ8SITS5UV2:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[ImageUrl], [i].[IsActive], [i].[Title]
+FROM [ItemCatagory] AS [i]" (0723d8ff)
+2023-04-29T12:07:00.7630803-07:00 0HMQ8SITS5UV1:00000002 [INF] Executed DbCommand ("4"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[ImageUrl], [i].[IsActive], [i].[Title]
+FROM [ItemCatagory] AS [i]" (0723d8ff)
+2023-04-29T12:07:00.8537412-07:00 0HMQ8SITS5UV3:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[IsActive], [i].[ItemCatagoryId], [i].[Title]
+FROM [ItemSubCatagory] AS [i]" (0723d8ff)
+2023-04-29T12:07:00.8573381-07:00 0HMQ8SITS5UV4:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[IsActive], [i].[ItemCatagoryId], [i].[Title]
+FROM [ItemSubCatagory] AS [i]" (0723d8ff)
+2023-04-29T12:07:05.4758753-07:00 0HMQ8SITS5UV5:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[ImageUrl], [i].[IsActive], [i].[Title]
+FROM [ItemCatagory] AS [i]" (0723d8ff)
+2023-04-29T12:07:05.5535500-07:00 0HMQ8SITS5UV6:00000002 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[Description], [b].[ImageUrl], [b].[IsActive], [b].[Title]
+FROM [BrandType] AS [b]" (0723d8ff)
+2023-04-29T12:07:05.6412626-07:00 0HMQ8SITS5UV7:00000002 [INF] Executed DbCommand ("10"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [s].[Id], [s].[DefaultImage], [s].[InsertedDate], [s].[InventoryCount], [s].[IsActive], [s].[IsExist], [s].[ItemId], [s].[Price], [s].[SupplierId], [s].[UpdatedDate], [s].[ViewerCount], [s0].[Id], [s0].[IsActive], [s0].[Name], [s0].[Token], [i].[Id], [i].[Description], [i].[InternalCode], [i].[IsActive], [i].[ItemSubCatagoryId], [i].[ItemUnitTypeId], [i].[ModelTypeId], [i].[StandardCode], [i].[Title]
+FROM [SupplierItem] AS [s]
+INNER JOIN [Supplier] AS [s0] ON [s].[SupplierId] = [s0].[Id]
+INNER JOIN [Items] AS [i] ON [s].[ItemId] = [i].[Id]
+WHERE [s].[InventoryCount] > 0 AND [s].[Price] > 0.0E0" (0723d8ff)
+2023-04-29T12:07:05.6558018-07:00 0HMQ8SITS5UV7:00000002 [INF] Executed DbCommand ("5"ms) [Parameters=["@__item_Id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[ImageUrl], [i].[IsActive], [i].[ItemId]
+FROM [ItemImage] AS [i]
+WHERE [i].[ItemId] = @__item_Id_0" (0723d8ff)
+2023-04-29T12:07:05.6638576-07:00 0HMQ8SITS5UV7:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=["@__item_Id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[ImageUrl], [i].[IsActive], [i].[ItemId]
+FROM [ItemImage] AS [i]
+WHERE [i].[ItemId] = @__item_Id_0" (0723d8ff)
+2023-04-29T12:07:05.9659721-07:00 0HMQ8SITS5UV8:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[ImageUrl], [i].[IsActive], [i].[Title]
+FROM [ItemCatagory] AS [i]" (0723d8ff)
+2023-04-29T12:07:05.9807065-07:00 0HMQ8SITS5UV9:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[ImageUrl], [i].[IsActive], [i].[Title]
+FROM [ItemCatagory] AS [i]" (0723d8ff)
+2023-04-29T12:07:06.0590818-07:00 0HMQ8SITS5UVA:00000002 [INF] Executed DbCommand ("10"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[IsActive], [i].[ItemCatagoryId], [i].[Title]
+FROM [ItemSubCatagory] AS [i]" (0723d8ff)
+2023-04-29T12:07:06.1190811-07:00 0HMQ8SITS5UVB:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[IsActive], [i].[ItemCatagoryId], [i].[Title]
+FROM [ItemSubCatagory] AS [i]" (0723d8ff)
+2023-04-29T12:09:44.3668745-07:00 0HMQ8SL3VLBAU:00000002 [INF] Executed DbCommand ("126"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[ImageUrl], [i].[IsActive], [i].[Title]
+FROM [ItemCatagory] AS [i]" (0723d8ff)
+2023-04-29T12:09:45.8346010-07:00 0HMQ8SL3VLBAV:00000002 [INF] Executed DbCommand ("6"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[Description], [b].[ImageUrl], [b].[IsActive], [b].[Title]
+FROM [BrandType] AS [b]" (0723d8ff)
+2023-04-29T12:09:47.2864333-07:00 0HMQ8SL3VLBB0:00000002 [INF] Executed DbCommand ("10"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [s].[Id], [s].[DefaultImage], [s].[InsertedDate], [s].[InventoryCount], [s].[IsActive], [s].[IsExist], [s].[ItemId], [s].[Price], [s].[SupplierId], [s].[UpdatedDate], [s].[ViewerCount], [s0].[Id], [s0].[IsActive], [s0].[Name], [s0].[Token], [i].[Id], [i].[Description], [i].[InternalCode], [i].[IsActive], [i].[ItemSubCatagoryId], [i].[ItemUnitTypeId], [i].[ModelTypeId], [i].[StandardCode], [i].[Title]
+FROM [SupplierItem] AS [s]
+INNER JOIN [Supplier] AS [s0] ON [s].[SupplierId] = [s0].[Id]
+INNER JOIN [Items] AS [i] ON [s].[ItemId] = [i].[Id]
+WHERE [s].[InventoryCount] > 0 AND [s].[Price] > 0.0E0" (0723d8ff)
+2023-04-29T12:09:47.7636335-07:00 0HMQ8SL3VLBB0:00000002 [INF] Executed DbCommand ("134"ms) [Parameters=["@__item_Id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[ImageUrl], [i].[IsActive], [i].[ItemId]
+FROM [ItemImage] AS [i]
+WHERE [i].[ItemId] = @__item_Id_0" (0723d8ff)
+2023-04-29T12:09:47.7812517-07:00 0HMQ8SL3VLBB0:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=["@__item_Id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[ImageUrl], [i].[IsActive], [i].[ItemId]
+FROM [ItemImage] AS [i]
+WHERE [i].[ItemId] = @__item_Id_0" (0723d8ff)
+2023-04-29T12:09:49.2044705-07:00 0HMQ8SL3VLBB1:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[ImageUrl], [i].[IsActive], [i].[Title]
+FROM [ItemCatagory] AS [i]" (0723d8ff)
+2023-04-29T12:09:49.2139609-07:00 0HMQ8SL3VLBB2:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[ImageUrl], [i].[IsActive], [i].[Title]
+FROM [ItemCatagory] AS [i]" (0723d8ff)
+2023-04-29T12:09:49.3165337-07:00 0HMQ8SL3VLBB4:00000002 [INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[IsActive], [i].[ItemCatagoryId], [i].[Title]
+FROM [ItemSubCatagory] AS [i]" (0723d8ff)
+2023-04-29T12:09:49.3226957-07:00 0HMQ8SL3VLBB3:00000002 [INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[IsActive], [i].[ItemCatagoryId], [i].[Title]
+FROM [ItemSubCatagory] AS [i]" (0723d8ff)
+2023-04-29T12:09:58.4466516-07:00 0HMQ8SL3VLBB6:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[ImageUrl], [i].[IsActive], [i].[Title]
+FROM [ItemCatagory] AS [i]" (0723d8ff)
+2023-04-29T12:09:58.4497611-07:00 0HMQ8SL3VLBB5:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[ImageUrl], [i].[IsActive], [i].[Title]
+FROM [ItemCatagory] AS [i]" (0723d8ff)
+2023-04-29T12:09:58.5211736-07:00 0HMQ8SL3VLBB8:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[IsActive], [i].[ItemCatagoryId], [i].[Title]
+FROM [ItemSubCatagory] AS [i]" (0723d8ff)
+2023-04-29T12:09:58.5242708-07:00 0HMQ8SL3VLBB7:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[IsActive], [i].[ItemCatagoryId], [i].[Title]
+FROM [ItemSubCatagory] AS [i]" (0723d8ff)
+2023-04-29T12:10:53.4109627-07:00 0HMQ8SL3VLBB9:00000002 [INF] Executed DbCommand ("15"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[ImageUrl], [i].[IsActive], [i].[Title]
+FROM [ItemCatagory] AS [i]" (0723d8ff)
+2023-04-29T12:10:53.4222793-07:00 0HMQ8SL3VLBBA:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[ImageUrl], [i].[IsActive], [i].[Title]
+FROM [ItemCatagory] AS [i]" (0723d8ff)
+2023-04-29T12:10:53.6291880-07:00 0HMQ8SL3VLBBB:00000002 [INF] Executed DbCommand ("11"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[IsActive], [i].[ItemCatagoryId], [i].[Title]
+FROM [ItemSubCatagory] AS [i]" (0723d8ff)
+2023-04-29T12:10:53.6376040-07:00 0HMQ8SL3VLBBC:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[IsActive], [i].[ItemCatagoryId], [i].[Title]
+FROM [ItemSubCatagory] AS [i]" (0723d8ff)
+2023-04-29T12:12:59.5030857-07:00 0HMQ8SMTVJ57O:00000002 [INF] Executed DbCommand ("109"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[ImageUrl], [i].[IsActive], [i].[Title]
+FROM [ItemCatagory] AS [i]" (0723d8ff)
+2023-04-29T12:13:01.0532724-07:00 0HMQ8SMTVJ57P:00000002 [INF] Executed DbCommand ("8"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[Description], [b].[ImageUrl], [b].[IsActive], [b].[Title]
+FROM [BrandType] AS [b]" (0723d8ff)
+2023-04-29T12:13:02.5307341-07:00 0HMQ8SMTVJ57Q:00000002 [INF] Executed DbCommand ("8"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [s].[Id], [s].[DefaultImage], [s].[InsertedDate], [s].[InventoryCount], [s].[IsActive], [s].[IsExist], [s].[ItemId], [s].[Price], [s].[SupplierId], [s].[UpdatedDate], [s].[ViewerCount], [s0].[Id], [s0].[IsActive], [s0].[Name], [s0].[Token], [i].[Id], [i].[Description], [i].[InternalCode], [i].[IsActive], [i].[ItemSubCatagoryId], [i].[ItemUnitTypeId], [i].[ModelTypeId], [i].[StandardCode], [i].[Title]
+FROM [SupplierItem] AS [s]
+INNER JOIN [Supplier] AS [s0] ON [s].[SupplierId] = [s0].[Id]
+INNER JOIN [Items] AS [i] ON [s].[ItemId] = [i].[Id]
+WHERE [s].[InventoryCount] > 0 AND [s].[Price] > 0.0E0" (0723d8ff)
+2023-04-29T12:13:02.9109358-07:00 0HMQ8SMTVJ57Q:00000002 [INF] Executed DbCommand ("111"ms) [Parameters=["@__item_Id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[ImageUrl], [i].[IsActive], [i].[ItemId]
+FROM [ItemImage] AS [i]
+WHERE [i].[ItemId] = @__item_Id_0" (0723d8ff)
+2023-04-29T12:13:02.9321833-07:00 0HMQ8SMTVJ57Q:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=["@__item_Id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[ImageUrl], [i].[IsActive], [i].[ItemId]
+FROM [ItemImage] AS [i]
+WHERE [i].[ItemId] = @__item_Id_0" (0723d8ff)
+2023-04-29T12:13:04.1659650-07:00 0HMQ8SMTVJ57S:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[ImageUrl], [i].[IsActive], [i].[Title]
+FROM [ItemCatagory] AS [i]" (0723d8ff)
+2023-04-29T12:13:04.1748730-07:00 0HMQ8SMTVJ57R:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[ImageUrl], [i].[IsActive], [i].[Title]
+FROM [ItemCatagory] AS [i]" (0723d8ff)
+2023-04-29T12:13:04.2532464-07:00 0HMQ8SMTVJ57T:00000002 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[IsActive], [i].[ItemCatagoryId], [i].[Title]
+FROM [ItemSubCatagory] AS [i]" (0723d8ff)
+2023-04-29T12:13:04.2583540-07:00 0HMQ8SMTVJ57U:00000002 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[IsActive], [i].[ItemCatagoryId], [i].[Title]
+FROM [ItemSubCatagory] AS [i]" (0723d8ff)
+2023-04-29T12:13:34.8450029-07:00 0HMQ8SMTVJ580:00000002 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[ImageUrl], [i].[IsActive], [i].[Title]
+FROM [ItemCatagory] AS [i]" (0723d8ff)
+2023-04-29T12:13:34.8488046-07:00 0HMQ8SMTVJ57V:00000002 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[ImageUrl], [i].[IsActive], [i].[Title]
+FROM [ItemCatagory] AS [i]" (0723d8ff)
+2023-04-29T12:13:35.0038423-07:00 0HMQ8SMTVJ581:00000002 [INF] Executed DbCommand ("10"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[IsActive], [i].[ItemCatagoryId], [i].[Title]
+FROM [ItemSubCatagory] AS [i]" (0723d8ff)
+2023-04-29T12:13:35.0079514-07:00 0HMQ8SMTVJ582:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[IsActive], [i].[ItemCatagoryId], [i].[Title]
+FROM [ItemSubCatagory] AS [i]" (0723d8ff)
+2023-04-29T12:24:00.4966622-07:00 0HMQ8ST361I0C:00000002 [INF] Executed DbCommand ("112"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[ImageUrl], [i].[IsActive], [i].[Title]
+FROM [ItemCatagory] AS [i]" (0723d8ff)
+2023-04-29T12:24:02.1518220-07:00 0HMQ8ST361I0D:00000002 [INF] Executed DbCommand ("6"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[Description], [b].[ImageUrl], [b].[IsActive], [b].[Title]
+FROM [BrandType] AS [b]" (0723d8ff)
+2023-04-29T12:24:03.4582043-07:00 0HMQ8ST361I0E:00000002 [INF] Executed DbCommand ("8"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [s].[Id], [s].[DefaultImage], [s].[InsertedDate], [s].[InventoryCount], [s].[IsActive], [s].[IsExist], [s].[ItemId], [s].[Price], [s].[SupplierId], [s].[UpdatedDate], [s].[ViewerCount], [s0].[Id], [s0].[IsActive], [s0].[Name], [s0].[Token], [i].[Id], [i].[Description], [i].[InternalCode], [i].[IsActive], [i].[ItemSubCatagoryId], [i].[ItemUnitTypeId], [i].[ModelTypeId], [i].[StandardCode], [i].[Title]
+FROM [SupplierItem] AS [s]
+INNER JOIN [Supplier] AS [s0] ON [s].[SupplierId] = [s0].[Id]
+INNER JOIN [Items] AS [i] ON [s].[ItemId] = [i].[Id]
+WHERE [s].[InventoryCount] > 0 AND [s].[Price] > 0.0E0" (0723d8ff)
+2023-04-29T12:24:03.8559025-07:00 0HMQ8ST361I0E:00000002 [INF] Executed DbCommand ("123"ms) [Parameters=["@__item_Id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[ImageUrl], [i].[IsActive], [i].[ItemId]
+FROM [ItemImage] AS [i]
+WHERE [i].[ItemId] = @__item_Id_0" (0723d8ff)
+2023-04-29T12:24:03.8730908-07:00 0HMQ8ST361I0E:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=["@__item_Id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[ImageUrl], [i].[IsActive], [i].[ItemId]
+FROM [ItemImage] AS [i]
+WHERE [i].[ItemId] = @__item_Id_0" (0723d8ff)
+2023-04-29T12:24:05.1887676-07:00 0HMQ8ST361I0G:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[ImageUrl], [i].[IsActive], [i].[Title]
+FROM [ItemCatagory] AS [i]" (0723d8ff)
+2023-04-29T12:24:05.2215053-07:00 0HMQ8ST361I0F:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[ImageUrl], [i].[IsActive], [i].[Title]
+FROM [ItemCatagory] AS [i]" (0723d8ff)
+2023-04-29T12:24:05.3183539-07:00 0HMQ8ST361I0I:00000002 [INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[IsActive], [i].[ItemCatagoryId], [i].[Title]
+FROM [ItemSubCatagory] AS [i]" (0723d8ff)
+2023-04-29T12:24:05.3231228-07:00 0HMQ8ST361I0H:00000002 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[IsActive], [i].[ItemCatagoryId], [i].[Title]
+FROM [ItemSubCatagory] AS [i]" (0723d8ff)
+2023-04-29T12:24:14.1089236-07:00 0HMQ8ST361I0J:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [s].[Id], [s].[DefaultImage], [s].[InsertedDate], [s].[InventoryCount], [s].[IsActive], [s].[IsExist], [s].[ItemId], [s].[Price], [s].[SupplierId], [s].[UpdatedDate], [s].[ViewerCount], [s0].[Id], [s0].[IsActive], [s0].[Name], [s0].[Token], [i].[Id], [i].[Description], [i].[InternalCode], [i].[IsActive], [i].[ItemSubCatagoryId], [i].[ItemUnitTypeId], [i].[ModelTypeId], [i].[StandardCode], [i].[Title]
+FROM [SupplierItem] AS [s]
+INNER JOIN [Supplier] AS [s0] ON [s].[SupplierId] = [s0].[Id]
+INNER JOIN [Items] AS [i] ON [s].[ItemId] = [i].[Id]
+WHERE [s].[InventoryCount] > 0 AND [s].[Price] > 0.0E0" (0723d8ff)
+2023-04-29T12:24:14.1300339-07:00 0HMQ8ST361I0J:00000002 [INF] Executed DbCommand ("6"ms) [Parameters=["@__item_Id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[ImageUrl], [i].[IsActive], [i].[ItemId]
+FROM [ItemImage] AS [i]
+WHERE [i].[ItemId] = @__item_Id_0" (0723d8ff)
+2023-04-29T12:24:14.1407092-07:00 0HMQ8ST361I0J:00000002 [INF] Executed DbCommand ("2"ms) [Parameters=["@__item_Id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[ImageUrl], [i].[IsActive], [i].[ItemId]
+FROM [ItemImage] AS [i]
+WHERE [i].[ItemId] = @__item_Id_0" (0723d8ff)
+2023-04-29T12:24:16.9169559-07:00 0HMQ8ST361I0L:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[ImageUrl], [i].[IsActive], [i].[Title]
+FROM [ItemCatagory] AS [i]" (0723d8ff)
+2023-04-29T12:24:16.9201561-07:00 0HMQ8ST361I0K:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[ImageUrl], [i].[IsActive], [i].[Title]
+FROM [ItemCatagory] AS [i]" (0723d8ff)
+2023-04-29T12:24:16.9872053-07:00 0HMQ8ST361I0M:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[IsActive], [i].[ItemCatagoryId], [i].[Title]
+FROM [ItemSubCatagory] AS [i]" (0723d8ff)
+2023-04-29T12:24:16.9906558-07:00 0HMQ8ST361I0N:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[IsActive], [i].[ItemCatagoryId], [i].[Title]
+FROM [ItemSubCatagory] AS [i]" (0723d8ff)

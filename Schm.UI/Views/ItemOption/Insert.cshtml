@@ -1,0 +1,99 @@
+﻿@using Schm.UI.Infrastructure.ViewModels
+@model ItemOptionViewModel
+
+<div class="row">
+    <div class="col-md-12">
+
+        <div class="card">
+            <div class="card-body">
+                <h6 class="card-title">ثبت کالا جدید</h6>
+                <form>
+                    <div class="row">
+
+
+                        <div class="col-md-6 col-sm-12 col-lg-6">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">گروه ویژگی  </label>
+                                <select class="form-control" name="selectedgroupType" id="selectedgroupType" onchange="BrandFilter(this)">
+                                    <option value="0"> انتخاب کنید ...  </option>
+                                    @{
+                                        foreach (var item in Model.OptionGroupTypeList)
+                                        {
+                                            <option value="@item.Id"> @item.Title </option>
+                                        }
+                                    }
+                                </select>
+                            </div>
+                        </div>
+
+                         <div class="col-md-6 col-sm-12 col-lg-6">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1"> نوع ویژگی  </label>
+                                <select class="form-control" name="selectedoptionType" id="selectedoptionType" onchange="BrandFilter(this)">
+                                    <option value="0"> انتخاب کنید ...  </option>
+                                    @{
+                                        foreach (var item in Model.OptionTypeList)
+                                        {
+                                            <option value="@item.Id"> @item.Title </option>
+                                        }
+                                    }
+                                </select>
+                            </div>
+                        </div>
+
+                          <div class="col-md-6 col-sm-12 col-lg-6">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">مقدار </label>
+                                <input type="text" class="form-control text-left" id="title" placeholder="مقدار" dir="ltr">
+                            </div>
+
+                        </div>
+                    </div>
+                    <a class="btn btn-primary float-left" onclick="insert()">ثبت </a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function insert(){
+        toastr.options = {
+            timeOut: 3000,
+            progressBar: true,
+            showMethod: "slideDown",
+            hideMethod: "slideUp",
+            showDuration: 200,
+            hideDuration: 200
+        };
+
+        var title=$('#title').val();
+        var e = document.getElementById("selectedgroupType");
+        var selectedgroup = e.value;
+        var e = document.getElementById("selectedoptionType");
+        var selectedoption = e.value;
+
+        if(title.length<3){toastr.error("نباید عنوان کوچکتر از 3 حرف باشد");return;}
+        if(selectedgroup=="0" || selectedgroup==""){toastr.error("گروه دسته بندی انتخاب نشده است");return;}
+        if(selectedoption=="0" || selectedoption==""){toastr.error(" دسته بندی انتخاب نشده است");return;}
+
+        $.ajax({
+                 url: '/ItemOption/Insert?itemId=@Context.Request.Query["itemId"]&title='+title+'&optionGroupType='+selectedgroup+'&optionType='+selectedoption,
+                 type: 'POST',
+                 dataType: 'json',
+                 success: function (data) {
+                     if(data.status){
+                         toastr.success(data.message);
+                         window.location.href= '/ItemOption/Index?itemId=@Context.Request.Query["itemId"]';
+                     }else{
+                         toastr.error(data.message);
+                     }
+                 },
+                 error: function (xhr, textStatus, errorThrown) {
+                     console.log('Error in Operation');
+                 }
+        });
+
+    }
+
+</script>

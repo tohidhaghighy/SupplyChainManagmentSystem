@@ -1,0 +1,68 @@
+﻿@using Schm.Domain.Model
+@model List<Item>
+
+<div class="row">
+    <div class="col-md-12">
+
+        <div class="card">
+            <div class="card-body">
+                <h6 class="card-title">ثبت کالا برای تامین کننده </h6>
+                <form>
+                    <div class="row">
+                         <div class="col-md-6 col-sm-12 col-lg-6">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">کالا  </label>
+                                <select class="form-control" name="selectedItem" id="selectedItem">
+                                    <option value="0"> انتخاب کنید ...  </option>
+                                    @{
+                                        foreach (var item in Model)
+                                        {
+                                            <option value="@item.Id"> @item.Title </option>
+                                        }
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="btn btn-primary float-left" onclick="insert()">ثبت </a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script>
+                function insert(){
+                        toastr.options = {
+                            timeOut: 3000,
+                            progressBar: true,
+                            showMethod: "slideDown",
+                            hideMethod: "slideUp",
+                            showDuration: 200,
+                            hideDuration: 200
+                        };
+
+
+                    var e = document.getElementById("selectedItem");
+                    var selecteditem = e.value;
+
+                    if(selecteditem=="0" || selecteditem==""){toastr.error("کالا انتخاب نشده است");return;}
+
+                    $.ajax({
+                             url: '/SupplierItem/Insert?supplierId=@Context.Request.Query["supplierId"]&ItemId='+selecteditem,
+                             type: 'POST',
+                             dataType: 'json',
+                             success: function (data) {
+                                 if(data.status){
+                                     toastr.success(data.message);
+                                     window.location.href= '/SupplierItem/Index?supplierId=@Context.Request.Query["supplierId"]';
+                                 }else{
+                                     toastr.error(data.message);
+                                 }
+                             },
+                             error: function (xhr, textStatus, errorThrown) {
+                                 console.log('Error in Operation');
+                             }
+                         });
+                }
+    </script>

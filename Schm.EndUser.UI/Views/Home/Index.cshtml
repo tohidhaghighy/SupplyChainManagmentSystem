@@ -1,0 +1,200 @@
+﻿@using Schm.EndUser.UI.Infrastructure.ViewModels
+@model HomeViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!-- ---------- Slider ---------- -->
+<div class="middle-menu">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-2 col-md-1 col-6">
+            </div>
+
+            <div class="col-lg-8 d-lg-block" style="padding: 50px;">
+                <div class="search-top">
+                    <form class="search-warp" asp-action="Index" asp-controller="Shop">
+                        <input type="text" placeholder="جستجو محصولات ..." id="search" name="search">
+                        <button>
+                            <i class="fal fa-search"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-lg-2 col-md-1 col-6">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- ---------- Category ---------- -->
+<div class="category">
+    <div id="head-title">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="title  f-parent">
+                        <h5>
+                            دسته بندی محصولات
+                        </h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="category-holder">
+        <div class="owl-carousel">
+            @{
+                foreach (var item in Model.CategoryList)
+                {
+                    <div class="category-item">
+                        <div class="col-12">
+                            <div class="item-holder trs-3" style="height: 200px;margin: 4px;">
+                                <span class="item-img">
+                                    <img src="@item.ImageUrl" alt="">
+                                </span>
+                                <span class="item-text  mt-4">
+                                    @item.Title
+                                </span>
+                                <span class="item-link trs-3">
+                                    <a href="/Shop/Index?categoryId=@item.Id" class="link trs-3">
+                                        مشاهده همه
+                                    </a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+
+        </div>
+    </div>
+</div>
+
+<!-- ---------- Brand ---------- -->
+<div class="brand">
+    <div class="hoder-brand">
+        <div id="head-title">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="title  f-parent">
+                            <h5>
+                                برند های ویژه
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="brand-box">
+            <div class="container">
+                <div class="row">
+                    <div class="owl-carousel nav-arrow">
+                        @{
+                            foreach (var item in Model.BrandList)
+                            {
+                                <div class="brand-item trs-3" style="height: 150px;width: 150px;">
+                                    <a href="/Shop/Index?brandId=@item.Id">
+                                        <img src="@item.ImageUrl" style="height: 100px;width:100px">
+                                    </a>
+                                </div>
+                            }
+                        }
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- ---------- New Products ---------- -->
+<div class="new-products">
+    <div class="holder-products">
+        <div id="head-title">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="title  f-parent">
+                            <h5>
+                                طرح های فروش
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="products">
+            <div class="container">
+                <div class="row">
+                    <div class="owl-carousel nav-arrow">
+                        @{
+                            for (var i = 0; i < Model.ItemList.Count ; i+=3)
+                            {
+                                <div class="col-12">
+                            @{
+                                foreach (var item in Model.ItemList.Skip(i).Take(3))
+                                {
+                                    <div class="holder-item trs-3">
+                                        <div class="product-pic">
+                                            <span class="holder-pic">
+                                                <img src="@item.Image" alt="">
+                                            </span>
+                                        </div>
+                                        <div class="product-info">
+                                            <span class="title mb-1">
+                                                <a href="/Shop/Item?itemId=@item.ItemId&supplierId=@item.SupplierId" class="trs-3">
+                                                    @item.ItemName
+                                                </a>
+                                            </span>
+
+                                            <span class="category mb-2">
+                                                کد : @item.ItemCode
+                                            </span>
+
+                                            <div class="product-bottom f-parent">
+
+                                                <span class="pric">
+
+                                                    <ins>
+                                                        @item.Price ریال
+                                                    </ins>
+                                                </span>
+                                            </div>
+
+                                            <div class="product-actions trs-3">
+                                                <div class="action-holder f-parent">
+                                                    <span class="action-item">
+                                                        <a href="/Shop/Item?itemId=@item.ItemId&supplierId=@item.SupplierId" class="trs-3">
+                                                            <i class="fal fa-shopping-bag"></i>
+                                                        </a>
+                                                        <p class="tooltip-box trs-3">
+                                                            افزودن به سبد خرید
+                                                        </p>
+                                                    </span>
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            }
+                                </div>
+                            }
+                        }
+                        
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

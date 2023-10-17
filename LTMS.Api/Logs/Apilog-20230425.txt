@@ -1,0 +1,254 @@
+2023-04-25T12:03:34.6229708-07:00 0HMQ5NV0TUTNA:00000002 [INF] Executed DbCommand ("57"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[Description], [b].[ImageUrl], [b].[IsActive], [b].[Title]
+FROM [BrandType] AS [b]" (0723d8ff)
+2023-04-25T12:03:35.4355618-07:00 0HMQ5NV0TUTNB:00000002 [INF] Executed DbCommand ("4"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[ImageUrl], [i].[IsActive], [i].[Title]
+FROM [ItemCatagory] AS [i]" (0723d8ff)
+2023-04-25T12:03:35.4887578-07:00 0HMQ5NV0TUTNC:00000002 [INF] ItemService is fired (ae281c32)
+2023-04-25T12:03:35.4917285-07:00 0HMQ5NV0TUTNC:00000002 [INF] ItemController is fired (1365bcb7)
+2023-04-25T12:03:35.5553976-07:00 0HMQ5NV0TUTNC:00000002 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[Description], [i].[InternalCode], [i].[IsActive], [i].[ItemSubCatagoryId], [i].[ItemUnitTypeId], [i].[ModelTypeId], [i].[StandardCode], [i].[Title]
+FROM [Items] AS [i]" (0723d8ff)
+2023-04-25T12:03:35.6016055-07:00 0HMQ5NV0TUTND:00000002 [INF] ItemService is fired (ae281c32)
+2023-04-25T12:03:35.6037545-07:00 0HMQ5NV0TUTND:00000002 [INF] ItemController is fired (1365bcb7)
+2023-04-25T12:03:35.6270228-07:00 0HMQ5NV0TUTND:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[Description], [i].[InternalCode], [i].[IsActive], [i].[ItemSubCatagoryId], [i].[ItemUnitTypeId], [i].[ModelTypeId], [i].[StandardCode], [i].[Title]
+FROM [Items] AS [i]" (0723d8ff)
+2023-04-25T12:03:41.3878324-07:00 0HMQ5NV0TUTNE:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[Description], [b].[ImageUrl], [b].[IsActive], [b].[Title]
+FROM [BrandType] AS [b]" (0723d8ff)
+2023-04-25T12:03:41.9742335-07:00 0HMQ5NV0TUTNE:00000002 [INF] Executed DbCommand ("180"ms) [Parameters=["@__SearchCntx_Title_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[Description], [b].[ImageUrl], [b].[IsActive], [b].[Title]
+FROM [BrandType] AS [b]
+WHERE (@__SearchCntx_Title_0 LIKE N'') OR CHARINDEX(@__SearchCntx_Title_0, [b].[Title]) > 0" (0723d8ff)
+2023-04-25T12:04:12.2905169-07:00 0HMQ5NV0TUTNF:00000002 [INF] Executed DbCommand ("4"ms) [Parameters=["@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (DbType = Boolean), @p3='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [BrandType] ([Description], [ImageUrl], [IsActive], [Title])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3);" (0723d8ff)
+2023-04-25T12:04:12.6507156-07:00 0HMQ5NV0TUTNG:00000002 [INF] Executed DbCommand ("6"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[Description], [b].[ImageUrl], [b].[IsActive], [b].[Title]
+FROM [BrandType] AS [b]" (0723d8ff)
+2023-04-25T12:04:12.6751322-07:00 0HMQ5NV0TUTNG:00000002 [INF] Executed DbCommand ("3"ms) [Parameters=["@__SearchCntx_Title_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[Description], [b].[ImageUrl], [b].[IsActive], [b].[Title]
+FROM [BrandType] AS [b]
+WHERE (@__SearchCntx_Title_0 LIKE N'') OR CHARINDEX(@__SearchCntx_Title_0, [b].[Title]) > 0" (0723d8ff)
+2023-04-25T12:04:30.1440113-07:00 0HMQ5NV0TUTNH:00000002 [INF] Executed DbCommand ("7"ms) [Parameters=["@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (DbType = Boolean), @p3='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [BrandType] ([Description], [ImageUrl], [IsActive], [Title])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3);" (0723d8ff)
+2023-04-25T12:04:30.3373938-07:00 0HMQ5NV0TUTNI:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[Description], [b].[ImageUrl], [b].[IsActive], [b].[Title]
+FROM [BrandType] AS [b]" (0723d8ff)
+2023-04-25T12:04:30.3418202-07:00 0HMQ5NV0TUTNI:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=["@__SearchCntx_Title_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[Description], [b].[ImageUrl], [b].[IsActive], [b].[Title]
+FROM [BrandType] AS [b]
+WHERE (@__SearchCntx_Title_0 LIKE N'') OR CHARINDEX(@__SearchCntx_Title_0, [b].[Title]) > 0" (0723d8ff)
+2023-04-25T12:04:42.5921377-07:00 0HMQ5NV0TUTNJ:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=["@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (DbType = Boolean), @p3='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [BrandType] ([Description], [ImageUrl], [IsActive], [Title])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3);" (0723d8ff)
+2023-04-25T12:04:42.8223337-07:00 0HMQ5NV0TUTNK:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[Description], [b].[ImageUrl], [b].[IsActive], [b].[Title]
+FROM [BrandType] AS [b]" (0723d8ff)
+2023-04-25T12:04:42.8264423-07:00 0HMQ5NV0TUTNK:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=["@__SearchCntx_Title_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[Description], [b].[ImageUrl], [b].[IsActive], [b].[Title]
+FROM [BrandType] AS [b]
+WHERE (@__SearchCntx_Title_0 LIKE N'') OR CHARINDEX(@__SearchCntx_Title_0, [b].[Title]) > 0" (0723d8ff)
+2023-04-25T12:05:07.4377419-07:00 0HMQ5NV0TUTNL:00000002 [INF] Executed DbCommand ("3"ms) [Parameters=["@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (DbType = Boolean), @p3='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [BrandType] ([Description], [ImageUrl], [IsActive], [Title])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3);" (0723d8ff)
+2023-04-25T12:05:07.6686284-07:00 0HMQ5NV0TUTNM:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[Description], [b].[ImageUrl], [b].[IsActive], [b].[Title]
+FROM [BrandType] AS [b]" (0723d8ff)
+2023-04-25T12:05:07.6733922-07:00 0HMQ5NV0TUTNM:00000002 [INF] Executed DbCommand ("2"ms) [Parameters=["@__SearchCntx_Title_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[Description], [b].[ImageUrl], [b].[IsActive], [b].[Title]
+FROM [BrandType] AS [b]
+WHERE (@__SearchCntx_Title_0 LIKE N'') OR CHARINDEX(@__SearchCntx_Title_0, [b].[Title]) > 0" (0723d8ff)
+2023-04-25T12:05:59.4530264-07:00 0HMQ5NV0TUTNN:00000002 [INF] Executed DbCommand ("8"ms) [Parameters=["@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (DbType = Boolean), @p3='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [BrandType] ([Description], [ImageUrl], [IsActive], [Title])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3);" (0723d8ff)
+2023-04-25T12:05:59.7153142-07:00 0HMQ5NV0TUTNO:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[Description], [b].[ImageUrl], [b].[IsActive], [b].[Title]
+FROM [BrandType] AS [b]" (0723d8ff)
+2023-04-25T12:05:59.7201490-07:00 0HMQ5NV0TUTNO:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=["@__SearchCntx_Title_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[Description], [b].[ImageUrl], [b].[IsActive], [b].[Title]
+FROM [BrandType] AS [b]
+WHERE (@__SearchCntx_Title_0 LIKE N'') OR CHARINDEX(@__SearchCntx_Title_0, [b].[Title]) > 0" (0723d8ff)
+2023-04-25T12:06:17.9474349-07:00 0HMQ5NV0TUTNP:00000002 [INF] Executed DbCommand ("9"ms) [Parameters=["@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (DbType = Boolean), @p3='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [BrandType] ([Description], [ImageUrl], [IsActive], [Title])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3);" (0723d8ff)
+2023-04-25T12:06:18.1379319-07:00 0HMQ5NV0TUTNQ:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[Description], [b].[ImageUrl], [b].[IsActive], [b].[Title]
+FROM [BrandType] AS [b]" (0723d8ff)
+2023-04-25T12:06:18.1438522-07:00 0HMQ5NV0TUTNQ:00000002 [INF] Executed DbCommand ("2"ms) [Parameters=["@__SearchCntx_Title_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[Description], [b].[ImageUrl], [b].[IsActive], [b].[Title]
+FROM [BrandType] AS [b]
+WHERE (@__SearchCntx_Title_0 LIKE N'') OR CHARINDEX(@__SearchCntx_Title_0, [b].[Title]) > 0" (0723d8ff)
+2023-04-25T12:06:23.1934784-07:00 0HMQ5NV0TUTNR:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[Description], [b].[ImageUrl], [b].[IsActive], [b].[Title]
+FROM [BrandType] AS [b]" (0723d8ff)
+2023-04-25T12:06:23.1968323-07:00 0HMQ5NV0TUTNR:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=["@__SearchCntx_Title_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[Description], [b].[ImageUrl], [b].[IsActive], [b].[Title]
+FROM [BrandType] AS [b]
+WHERE (@__SearchCntx_Title_0 LIKE N'') OR CHARINDEX(@__SearchCntx_Title_0, [b].[Title]) > 0" (0723d8ff)
+2023-04-25T12:06:24.4003668-07:00 0HMQ5NV0TUTNS:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[Description], [b].[ImageUrl], [b].[IsActive], [b].[Title]
+FROM [BrandType] AS [b]" (0723d8ff)
+2023-04-25T12:06:24.4042975-07:00 0HMQ5NV0TUTNS:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=["@__SearchCntx_Title_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[Description], [b].[ImageUrl], [b].[IsActive], [b].[Title]
+FROM [BrandType] AS [b]
+WHERE (@__SearchCntx_Title_0 LIKE N'') OR CHARINDEX(@__SearchCntx_Title_0, [b].[Title]) > 0" (0723d8ff)
+2023-04-25T12:06:26.8965689-07:00 0HMQ5NV0TUTNT:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[Description], [b].[ImageUrl], [b].[IsActive], [b].[Title]
+FROM [BrandType] AS [b]" (0723d8ff)
+2023-04-25T12:06:26.9008317-07:00 0HMQ5NV0TUTNT:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=["@__SearchCntx_Title_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[Description], [b].[ImageUrl], [b].[IsActive], [b].[Title]
+FROM [BrandType] AS [b]
+WHERE (@__SearchCntx_Title_0 LIKE N'') OR CHARINDEX(@__SearchCntx_Title_0, [b].[Title]) > 0" (0723d8ff)
+2023-04-25T12:06:31.1634805-07:00 0HMQ5NV0TUTNU:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[Description], [b].[ImageUrl], [b].[IsActive], [b].[Title]
+FROM [BrandType] AS [b]" (0723d8ff)
+2023-04-25T12:06:31.1683699-07:00 0HMQ5NV0TUTNU:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=["@__SearchCntx_Title_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[Description], [b].[ImageUrl], [b].[IsActive], [b].[Title]
+FROM [BrandType] AS [b]
+WHERE (@__SearchCntx_Title_0 LIKE N'') OR CHARINDEX(@__SearchCntx_Title_0, [b].[Title]) > 0" (0723d8ff)
+2023-04-25T12:06:39.0668209-07:00 0HMQ5NV0TUTNV:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[Description], [b].[ImageUrl], [b].[IsActive], [b].[Title]
+FROM [BrandType] AS [b]" (0723d8ff)
+2023-04-25T12:06:39.0713428-07:00 0HMQ5NV0TUTNV:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=["@__SearchCntx_Title_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[Description], [b].[ImageUrl], [b].[IsActive], [b].[Title]
+FROM [BrandType] AS [b]
+WHERE (@__SearchCntx_Title_0 LIKE N'') OR CHARINDEX(@__SearchCntx_Title_0, [b].[Title]) > 0" (0723d8ff)
+2023-04-25T12:06:41.1060283-07:00 0HMQ5NV0TUTO0:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[Description], [b].[ImageUrl], [b].[IsActive], [b].[Title]
+FROM [BrandType] AS [b]" (0723d8ff)
+2023-04-25T12:06:41.1105485-07:00 0HMQ5NV0TUTO0:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=["@__SearchCntx_Title_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[Description], [b].[ImageUrl], [b].[IsActive], [b].[Title]
+FROM [BrandType] AS [b]
+WHERE (@__SearchCntx_Title_0 LIKE N'') OR CHARINDEX(@__SearchCntx_Title_0, [b].[Title]) > 0" (0723d8ff)
+2023-04-25T12:06:42.8564279-07:00 0HMQ5NV0TUTO1:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[Description], [b].[ImageUrl], [b].[IsActive], [b].[Title]
+FROM [BrandType] AS [b]" (0723d8ff)
+2023-04-25T12:06:42.8598339-07:00 0HMQ5NV0TUTO1:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=["@__SearchCntx_Title_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[Description], [b].[ImageUrl], [b].[IsActive], [b].[Title]
+FROM [BrandType] AS [b]
+WHERE (@__SearchCntx_Title_0 LIKE N'') OR CHARINDEX(@__SearchCntx_Title_0, [b].[Title]) > 0" (0723d8ff)
+2023-04-25T12:07:46.0446796-07:00 0HMQ5NV0TUTO2:00000002 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[Description], [b].[ImageUrl], [b].[IsActive], [b].[Title]
+FROM [BrandType] AS [b]" (0723d8ff)
+2023-04-25T12:07:46.0495025-07:00 0HMQ5NV0TUTO2:00000002 [INF] Executed DbCommand ("2"ms) [Parameters=["@__SearchCntx_Title_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[Description], [b].[ImageUrl], [b].[IsActive], [b].[Title]
+FROM [BrandType] AS [b]
+WHERE (@__SearchCntx_Title_0 LIKE N'') OR CHARINDEX(@__SearchCntx_Title_0, [b].[Title]) > 0" (0723d8ff)
+2023-04-25T12:08:57.2646784-07:00 0HMQ5O21L2EQ0:00000002 [INF] Executed DbCommand ("56"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[Description], [b].[ImageUrl], [b].[IsActive], [b].[Title]
+FROM [BrandType] AS [b]" (0723d8ff)
+2023-04-25T12:08:57.8854422-07:00 0HMQ5O21L2EQ1:00000002 [INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[ImageUrl], [i].[IsActive], [i].[Title]
+FROM [ItemCatagory] AS [i]" (0723d8ff)
+2023-04-25T12:08:57.9324066-07:00 0HMQ5O21L2EQ2:00000002 [INF] ItemService is fired (ae281c32)
+2023-04-25T12:08:57.9368597-07:00 0HMQ5O21L2EQ2:00000002 [INF] ItemController is fired (1365bcb7)
+2023-04-25T12:08:57.9790860-07:00 0HMQ5O21L2EQ2:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[Description], [i].[InternalCode], [i].[IsActive], [i].[ItemSubCatagoryId], [i].[ItemUnitTypeId], [i].[ModelTypeId], [i].[StandardCode], [i].[Title]
+FROM [Items] AS [i]" (0723d8ff)
+2023-04-25T12:08:58.0416273-07:00 0HMQ5O21L2EQ3:00000002 [INF] ItemService is fired (ae281c32)
+2023-04-25T12:08:58.0450833-07:00 0HMQ5O21L2EQ3:00000002 [INF] ItemController is fired (1365bcb7)
+2023-04-25T12:08:58.0879217-07:00 0HMQ5O21L2EQ3:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[Description], [i].[InternalCode], [i].[IsActive], [i].[ItemSubCatagoryId], [i].[ItemUnitTypeId], [i].[ModelTypeId], [i].[StandardCode], [i].[Title]
+FROM [Items] AS [i]" (0723d8ff)
+2023-04-25T12:09:04.6837555-07:00 0HMQ5O21L2EQ4:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[Description], [b].[ImageUrl], [b].[IsActive], [b].[Title]
+FROM [BrandType] AS [b]" (0723d8ff)
+2023-04-25T12:09:05.0351792-07:00 0HMQ5O21L2EQ4:00000002 [INF] Executed DbCommand ("62"ms) [Parameters=["@__SearchCntx_Title_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[Description], [b].[ImageUrl], [b].[IsActive], [b].[Title]
+FROM [BrandType] AS [b]
+WHERE (@__SearchCntx_Title_0 LIKE N'') OR CHARINDEX(@__SearchCntx_Title_0, [b].[Title]) > 0" (0723d8ff)
+2023-04-25T12:09:48.0691498-07:00 0HMQ5O21L2EQ5:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[Description], [b].[ImageUrl], [b].[IsActive], [b].[Title]
+FROM [BrandType] AS [b]" (0723d8ff)
+2023-04-25T12:09:48.0770586-07:00 0HMQ5O21L2EQ5:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=["@__SearchCntx_Title_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[Description], [b].[ImageUrl], [b].[IsActive], [b].[Title]
+FROM [BrandType] AS [b]
+WHERE (@__SearchCntx_Title_0 LIKE N'') OR CHARINDEX(@__SearchCntx_Title_0, [b].[Title]) > 0" (0723d8ff)
+2023-04-25T12:09:59.3341992-07:00 0HMQ5O21L2EQ6:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[Description], [b].[ImageUrl], [b].[IsActive], [b].[Title]
+FROM [BrandType] AS [b]" (0723d8ff)
+2023-04-25T12:09:59.3384957-07:00 0HMQ5O21L2EQ6:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=["@__SearchCntx_Title_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[Description], [b].[ImageUrl], [b].[IsActive], [b].[Title]
+FROM [BrandType] AS [b]
+WHERE (@__SearchCntx_Title_0 LIKE N'') OR CHARINDEX(@__SearchCntx_Title_0, [b].[Title]) > 0" (0723d8ff)
+2023-04-25T12:16:18.9434848-07:00 0HMQ5O657F0HV:00000002 [INF] Executed DbCommand ("42"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[Description], [b].[ImageUrl], [b].[IsActive], [b].[Title]
+FROM [BrandType] AS [b]" (0723d8ff)
+2023-04-25T12:16:19.6024580-07:00 0HMQ5O657F0I0:00000002 [INF] Executed DbCommand ("4"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[ImageUrl], [i].[IsActive], [i].[Title]
+FROM [ItemCatagory] AS [i]" (0723d8ff)
+2023-04-25T12:16:19.6756081-07:00 0HMQ5O657F0I1:00000002 [INF] ItemService is fired (ae281c32)
+2023-04-25T12:16:19.6788935-07:00 0HMQ5O657F0I1:00000002 [INF] ItemController is fired (1365bcb7)
+2023-04-25T12:16:19.7178844-07:00 0HMQ5O657F0I1:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[Description], [i].[InternalCode], [i].[IsActive], [i].[ItemSubCatagoryId], [i].[ItemUnitTypeId], [i].[ModelTypeId], [i].[StandardCode], [i].[Title]
+FROM [Items] AS [i]" (0723d8ff)
+2023-04-25T12:16:19.7722527-07:00 0HMQ5O657F0I2:00000002 [INF] ItemService is fired (ae281c32)
+2023-04-25T12:16:19.7759234-07:00 0HMQ5O657F0I2:00000002 [INF] ItemController is fired (1365bcb7)
+2023-04-25T12:16:19.8011085-07:00 0HMQ5O657F0I2:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[Description], [i].[InternalCode], [i].[IsActive], [i].[ItemSubCatagoryId], [i].[ItemUnitTypeId], [i].[ModelTypeId], [i].[StandardCode], [i].[Title]
+FROM [Items] AS [i]" (0723d8ff)
+2023-04-25T12:16:25.9765913-07:00 0HMQ5O657F0I3:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[Description], [b].[ImageUrl], [b].[IsActive], [b].[Title]
+FROM [BrandType] AS [b]" (0723d8ff)
+2023-04-25T12:16:26.3386641-07:00 0HMQ5O657F0I3:00000002 [INF] Executed DbCommand ("71"ms) [Parameters=["@__SearchCntx_Title_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[Description], [b].[ImageUrl], [b].[IsActive], [b].[Title]
+FROM [BrandType] AS [b]
+WHERE (@__SearchCntx_Title_0 LIKE N'') OR CHARINDEX(@__SearchCntx_Title_0, [b].[Title]) > 0" (0723d8ff)
+2023-04-25T12:16:45.0131850-07:00 0HMQ5O657F0I4:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[Description], [b].[ImageUrl], [b].[IsActive], [b].[Title]
+FROM [BrandType] AS [b]" (0723d8ff)
+2023-04-25T12:16:45.0204221-07:00 0HMQ5O657F0I4:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=["@__SearchCntx_Title_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[Description], [b].[ImageUrl], [b].[IsActive], [b].[Title]
+FROM [BrandType] AS [b]
+WHERE (@__SearchCntx_Title_0 LIKE N'') OR CHARINDEX(@__SearchCntx_Title_0, [b].[Title]) > 0" (0723d8ff)
+2023-04-25T12:19:04.0002495-07:00 0HMQ5O7MDMLB4:00000002 [INF] Executed DbCommand ("42"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[Description], [b].[ImageUrl], [b].[IsActive], [b].[Title]
+FROM [BrandType] AS [b]" (0723d8ff)
+2023-04-25T12:19:04.6771565-07:00 0HMQ5O7MDMLB5:00000002 [INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[ImageUrl], [i].[IsActive], [i].[Title]
+FROM [ItemCatagory] AS [i]" (0723d8ff)
+2023-04-25T12:19:04.7198336-07:00 0HMQ5O7MDMLB6:00000002 [INF] ItemService is fired (ae281c32)
+2023-04-25T12:19:04.7230141-07:00 0HMQ5O7MDMLB6:00000002 [INF] ItemController is fired (1365bcb7)
+2023-04-25T12:19:04.7660109-07:00 0HMQ5O7MDMLB6:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[Description], [i].[InternalCode], [i].[IsActive], [i].[ItemSubCatagoryId], [i].[ItemUnitTypeId], [i].[ModelTypeId], [i].[StandardCode], [i].[Title]
+FROM [Items] AS [i]" (0723d8ff)
+2023-04-25T12:19:04.8097095-07:00 0HMQ5O7MDMLB7:00000002 [INF] ItemService is fired (ae281c32)
+2023-04-25T12:19:04.8126252-07:00 0HMQ5O7MDMLB7:00000002 [INF] ItemController is fired (1365bcb7)
+2023-04-25T12:19:04.8373551-07:00 0HMQ5O7MDMLB7:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[Description], [i].[InternalCode], [i].[IsActive], [i].[ItemSubCatagoryId], [i].[ItemUnitTypeId], [i].[ModelTypeId], [i].[StandardCode], [i].[Title]
+FROM [Items] AS [i]" (0723d8ff)
+2023-04-25T12:19:12.5116345-07:00 0HMQ5O7MDMLB8:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[Description], [b].[ImageUrl], [b].[IsActive], [b].[Title]
+FROM [BrandType] AS [b]" (0723d8ff)
+2023-04-25T12:19:12.9366849-07:00 0HMQ5O7MDMLB8:00000002 [INF] Executed DbCommand ("44"ms) [Parameters=["@__SearchCntx_Title_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[Description], [b].[ImageUrl], [b].[IsActive], [b].[Title]
+FROM [BrandType] AS [b]
+WHERE (@__SearchCntx_Title_0 LIKE N'') OR CHARINDEX(@__SearchCntx_Title_0, [b].[Title]) > 0" (0723d8ff)
+2023-04-25T12:19:46.0044033-07:00 0HMQ5O7MDMLB9:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[Description], [b].[ImageUrl], [b].[IsActive], [b].[Title]
+FROM [BrandType] AS [b]" (0723d8ff)
+2023-04-25T12:19:46.0120386-07:00 0HMQ5O7MDMLB9:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=["@__SearchCntx_Title_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[Description], [b].[ImageUrl], [b].[IsActive], [b].[Title]
+FROM [BrandType] AS [b]
+WHERE (@__SearchCntx_Title_0 LIKE N'') OR CHARINDEX(@__SearchCntx_Title_0, [b].[Title]) > 0" (0723d8ff)

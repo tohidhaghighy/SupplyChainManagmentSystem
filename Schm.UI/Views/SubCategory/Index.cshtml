@@ -1,0 +1,115 @@
+﻿
+
+<div class="card">
+    <div class="card-body">
+        <div class="row">
+            <a href="/SubCategory/Insert?categoryId=@Context.Request.Query["categoryId"]" class="btn btn-info">ثبت دسته بندی جدید</a>
+        </div>
+    </div>
+</div>
+
+<div class="card" id="Grid">
+    <div class="card-body">
+        <table id="CategoryGridDynamic" class="table table-striped table-bordered" width="100%">
+            <thead>
+                <tr>
+                    <th>عنوان</th>
+                    <th>فعال/غیر فعال</th>
+                    <th>ویرایش / حذف </th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script>
+    var table;
+        $(document).ready(function() {
+            table = $("#CategoryGridDynamic").DataTable({
+		            processing: true,
+                    serverSide: true,
+		            language: {
+		            	"sEmptyTable": "هیچ داده ای در جدول وجود ندارد",
+		            	"sInfo": "نمایش _START_ تا _END_ از _TOTAL_ رکورد",
+		            	"sInfoEmpty": "نمایش 0 تا 0 از 0 رکورد",
+		            	"sInfoFiltered": "(فیلتر شده از _MAX_ رکورد)",
+		            	"sInfoPostFix": "",
+		            	"sInfoThousands": ",",
+		            	"sLengthMenu": "نمایش _MENU_ رکورد",
+		            	"sLoadingRecords": "در حال بارگزاری...",
+		            	"sProcessing": "در حال دریافت ...",
+		            	"sSearch": "جستجو:",
+		            	"sZeroRecords": "رکوردی با این مشخصات پیدا نشد",
+		            	"oPaginate": {
+		            		"sFirst": "ابتدا",
+		            		"sLast": "انتها",
+		            		"sNext": "بعدی",
+		            		"sPrevious": "قبلی"
+		            	},
+		            	"oAria": {
+		            		"sSortAscending": ": فعال سازی نمایش به صورت صعودی",
+		            		"sSortDescending": ": فعال سازی نمایش به صورت نزولی"
+		            	}
+		            },
+		            ajax: {
+		            	"url": "/SubCategory/Search?categoryid=@Context.Request.Query["categoryId"]",
+		            	"type": "Post",
+		            	"datatype": "json"
+		            },
+		            columns: [
+		            	{ "data": "title", "name": "عنوان" },
+		            	{
+		            		"render": function (data, type, row) {
+		            			if (row.isActive) {
+		            				return "<i class='fa fa-check' style='color:green;'></i>";
+		            			} else {
+		            				return "<i class='fa fa-check' style='color:red;'></i>";
+		            			}
+		            		}
+		            	},
+		            	{
+		            		"render": function (data,type, row) { return "<a class='btn' title='ویرایش' href='/SubCategory/Update?id=" + row.id + "'><i class='fa fa-edit' style='color: green;'></i></a>"
+                                + "<a class='btn' title='حذف' onclick='deleteitem(" + row.id +")'><i class='fa fa-remove' style='color: red;'></i></a> "; }
+		            	},
+		            ]
+			});
+            
+        });
+
+        function Search(){
+            $("#CategoryGridDynamic").DataTable().ajax.reload();
+        }
+
+    function deleteitem(id) {
+        swal({
+            title: "آیا اطمینان دارید؟",
+            text: "پس از حذف قادر به بازیابی اطلاعات نخواهید بود!",
+            icon: "warning",
+            buttons: {
+                confirm: 'بله',
+                cancel: 'خیر'
+            },
+            dangerMode: true
+        })
+            .then(function (willDelete) {
+                if (willDelete) {
+                    $.ajax({
+                        url: '/SubCategory/Delete?id=' + id,
+                        type: 'POST',
+                        dataType: 'json',
+                        success: function (data) {
+                            if (data.status) {
+                                toastr.success(data.message);
+                                Search();
+                            } else {
+                                toastr.error(data.message);
+                            }
+                        },
+                        error: function (xhr, textStatus, errorThrown) {
+                            console.log('Error in Operation');
+                        }
+                    });
+                }
+            });
+    }
+</script>

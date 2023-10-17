@@ -1,0 +1,240 @@
+﻿@using Schm.EndUser.UI.Infrastructure.Model
+@model List<Basket>
+
+<div class="shop-cart">
+        <div class="container">
+            <div class="address-bar">
+                <ul class="box-address">
+                    <li class="item">
+                        <a class="trs-3" href="#">
+                            خانه
+                            <i class="fal fa-chevron-left"></i>
+                        </a>
+                    </li>
+                    <li class="item active">
+                        <a class="trs-3" href="#">
+                            سبد خرید
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="cart">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="checkout-steps">
+                            <ul class="steps f-parent">
+                                <li class="item active">
+                                    <span class="text">
+                                        سبد خرید
+                                    </span>
+                                    <span class="circle"></span>
+                                </li>
+
+                                <li class="item">
+                                    ارسال اطلاعات
+                                    <span class="circle"></span>
+                                </li>
+
+                                <li class="item">
+                                    پرداخت هزینه
+                                    <span class="circle"></span>
+                                </li>
+
+                                <li class="item">
+                                    اتمام خرید
+                                    <span class="circle"></span>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-9 col-12">
+                        <div class="products-cart">
+                            <div class="title">
+                                <h5>
+                                    سبد خرید
+                                </h5>
+                            </div>
+
+                            <div class="product-box" id="basketList">
+                                <table>
+                                    <tbody>
+                                        @{
+                                        double totalBasketCost = 0;
+                                        foreach (var item in Model)
+                                            {
+                                                <tr>
+                                            <td>
+                                                <img src="@item.Image" alt="@item.ItemName">
+                                            </td>
+
+                                            <td>
+                                                <a class="name trs-3" href="#">
+                                                    @item.ItemName
+                                                </a>
+                                                <span class="price">
+                                                     @item.Price ریال
+                                                </span>
+                                            </td>
+
+                                            <td>
+                                                <a id="quantity-product" class="quantity">
+                                                    <input type="button" value="-" class="button qtyminus minus trs-3"
+                                                        field="quantity" onclick="DecreaseBaskte(@item.ItemId)">
+                                                    <input type="text" name="quantity" value="@item.Count" class="qty">
+                                                    <input type="button" value="+" class="button qtyplus plus trs-3"
+                                                        field="quantity" onclick="IncreaseBaskte(@item.ItemId)">
+                                                </a>
+                                            </td>
+
+                                            <td>
+                                                <span class="total-price">
+                                                        @{
+                                                            var totalPrice = item.Price * item.Count;
+                                                            totalBasketCost += totalPrice;
+                                                        }
+                                                        @totalPrice  ریال
+                                                </span>
+                                            </td>
+
+                                            <td>
+                                                <a class="remove trs-3" onclick="removefrombasket(@item.ItemId)">
+                                                    حذف
+                                                </a>
+                                            </td>
+                                        </tr>
+                                            }
+                                        }
+                                        
+
+                                    </tbody>
+                                </table>
+
+                                <div class="button f-parent">
+                                    <a class="back trs-3" href="/">
+                                        بازگشت
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-12">
+                        <div class="price-cart">
+                            <div class="title">
+                                <h6>
+                                    هزینه سفارشات
+                                </h6>
+                            </div>
+
+                            <div class="info">
+                                <div class="price">
+                                    <div class="subtotal f-parent">
+                                        <span class="label">
+                                            قیمت
+                                        </span>
+                                        <span class="value">
+                                            @totalBasketCost ریال
+                                        </span>
+                                    </div>
+
+                                    <div class="total f-parent">
+                                        <span class="label">
+                                            قیمت کل
+                                        </span>
+                                        <span class="value">
+                                            @totalBasketCost ریال
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div class="payment-btn">
+                                    <a class="trs-3" href="/Payment/Index">
+                                        ادامه فرایند خرید
+                                    </a>
+                                </div>
+                                <span class="back">
+                                    <a class="trs-3" href="/">
+                                        برگشت به فروشگاه
+                                    </a>
+                                </span>
+                            </div>
+
+                            <div class="services">
+                                <ul class="services-box">
+                                    <li class="item">
+                                        <i class="fal fa-undo"></i>
+                                        هفت روز ضمانت بازگشت کالا
+                                    </li>
+                                    <li class="item">
+                                        <i class="fal fa-shield-check"></i>
+                                        ﺿﻤﺎﻧﺖ اﺻﻞ ﺑﻮدن ﮐﺎﻟﺎ
+                                    </li>
+                                    <li class="item">
+                                        <i class="fal fa-phone"></i>
+                                        شماره پشتیبانی 021-0000000
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function removefrombasket(itemid){
+          var model={ItemId:itemid};
+          $.ajax({
+          type: "Post",
+          url: '/Basket/RemoveFromBasket',
+          data: model,
+          success: function (data) {
+              if (data.status==200){
+                   $('#basketList').empty();
+                   $("#basketList").load('/Cart/List');
+              }else{
+                 alert(data.message);
+              }
+          }
+      });
+        }
+
+        function IncreaseBaskte(itemid){
+            var model={ItemId:itemid};
+          $.ajax({
+          type: "Post",
+          url: '/Basket/IncreaseBasket',
+          data: model,
+          success: function (data) {
+              if (data.status==200){
+                   $('#basketList').empty();
+                   $("#basketList").load('/Cart/List');
+              }else{
+                 alert(data.message);
+              }
+          }
+      });
+        }
+
+        function DecreaseBaskte(itemid){
+            var model={ItemId:itemid};
+          $.ajax({
+          type: "Post",
+          url: '/Basket/DecreaseBasket',
+          data: model,
+          success: function (data) {
+              if (data.status==200){
+                   $('#basketList').empty();
+                   $("#basketList").load('/Cart/List');
+              }else{
+                 alert(data.message);
+              }
+          }
+      });
+        }
+    </script>

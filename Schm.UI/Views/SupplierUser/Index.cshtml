@@ -1,0 +1,142 @@
+﻿
+
+<div class="card" id="Grid">
+    <div class="card-body">
+        <table id="CategoryGridDynamic" class="table table-striped table-bordered" width="100%">
+            <thead>
+                <tr>
+                    <th>نام</th>
+					<th>موبایل</th>
+                    <th>فعال/غیر فعال</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script>
+    var table;
+        $(document).ready(function() {
+            table = $("#CategoryGridDynamic").DataTable({
+		            processing: true,
+                    serverSide: true,
+		            language: {
+		            	"sEmptyTable": "هیچ داده ای در جدول وجود ندارد",
+		            	"sInfo": "نمایش _START_ تا _END_ از _TOTAL_ رکورد",
+		            	"sInfoEmpty": "نمایش 0 تا 0 از 0 رکورد",
+		            	"sInfoFiltered": "(فیلتر شده از _MAX_ رکورد)",
+		            	"sInfoPostFix": "",
+		            	"sInfoThousands": ",",
+		            	"sLengthMenu": "نمایش _MENU_ رکورد",
+		            	"sLoadingRecords": "در حال بارگزاری...",
+		            	"sProcessing": "در حال دریافت ...",
+		            	"sSearch": "جستجو:",
+		            	"sZeroRecords": "رکوردی با این مشخصات پیدا نشد",
+		            	"oPaginate": {
+		            		"sFirst": "ابتدا",
+		            		"sLast": "انتها",
+		            		"sNext": "بعدی",
+		            		"sPrevious": "قبلی"
+		            	},
+		            	"oAria": {
+		            		"sSortAscending": ": فعال سازی نمایش به صورت صعودی",
+		            		"sSortDescending": ": فعال سازی نمایش به صورت نزولی"
+		            	}
+		            },
+		            ajax: {
+		            	"url": "/SupplierUser/Search?supplierId=@Context.Request.Query["supplierId"]",
+		            	"type": "Post",
+		            	"datatype": "json"
+		            },
+		            columns: [
+		            	{ "data": "userName", "name": "نام" },
+						{ "data": "mobile", "name": "موبایل" },
+		            	{
+		            		"render": function (data, type, row) {
+		            			if (row.isActive) {
+		            				return "<i class='fa fa-check' style='color:green;' onclick='deactiveuser(" + row.id +")'></i>";
+		            			} else {
+		            				return "<i class='fa fa-remove' style='color:red;' onclick='activeuser(" + row.id +")'></i>";
+		            			}
+		            		}
+		            	},
+		            ]
+			});
+            
+        });
+
+        function Search(){
+            $("#CategoryGridDynamic").DataTable().ajax.reload();
+        }
+
+    function deleteitem(id) {
+        swal({
+            title: "آیا اطمینان دارید؟",
+            text: "پس از حذف قادر به بازیابی اطلاعات نخواهید بود!",
+            icon: "warning",
+            buttons: {
+                confirm: 'بله',
+                cancel: 'خیر'
+            },
+            dangerMode: true
+        })
+            .then(function (willDelete) {
+                if (willDelete) {
+                    $.ajax({
+                        url: '/Supplier/Delete?id=' + id,
+                        type: 'POST',
+                        dataType: 'json',
+                        success: function (data) {
+                            if (data.status) {
+                                toastr.success(data.message);
+                                Search();
+                            } else {
+                                toastr.error(data.message);
+                            }
+                        },
+                        error: function (xhr, textStatus, errorThrown) {
+                            console.log('Error in Operation');
+                        }
+                    });
+                }
+            });
+    }
+	
+    function deactiveuser(id){
+               $.ajax({
+                   url: '/SupplierUser/Active?id='+id+'&active=false',
+                   type: 'POST',
+                   dataType: 'json',
+                   success: function (data) {
+                       if(data.status){
+                           toastr.success(data.message);
+                           Search();
+                       }else{
+                           toastr.error(data.message);
+                       }
+                   },
+                   error: function (xhr, textStatus, errorThrown) {
+                       console.log('Error in Operation');
+                   }
+               });
+        }
+
+          function activeuser(id){
+               $.ajax({
+                   url: '/SupplierUser/Active?id='+id+'&active=true',
+                   type: 'POST',
+                   dataType: 'json',
+                   success: function (data) {
+                       if(data.status){
+                           toastr.success(data.message);
+                           Search();
+                       }else{
+                           toastr.error(data.message);
+                       }
+                   },
+                   error: function (xhr, textStatus, errorThrown) {
+                       console.log('Error in Operation');
+                   }
+               });
+        }
+</script>

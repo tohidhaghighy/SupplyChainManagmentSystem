@@ -1,0 +1,124 @@
+﻿@using Schm.Domain.Model
+@model List<ItemImage>
+
+<div class="row">
+    <div class="col-md-12">
+
+        <div class="card">
+            <div class="card-body">
+                <h6 class="card-title">ثبت تصویر جدید</h6>
+                <form>
+                    <div class="row">
+                        <div class="col-md-6 col-sm-12 col-lg-6">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">عکس </label>
+                                <input type="file" class="form-control text-left" id="image" placeholder="عکس" dir="ltr">
+                            </div>
+                        </div>
+                    </div>
+                    <a class="btn btn-primary float-left" onclick="insert()">ثبت </a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-body">
+        <h6 class="card-title">تصاویر </h6>
+        <div class="row">
+            @{
+                foreach (var item in Model)
+                {
+                     <div class="col-md-4 m-b-15">
+                        <img src="@item.ImageUrl" alt="image" class="img-thumbnail" onclick="showimage(@item.Id)">
+                    </div>
+                }
+            }
+        </div>
+    </div>
+</div>
+
+<script>
+            function showimage(id){
+                 swal({
+                    title: "آیا اطمینان دارید؟",
+                    text: "پس از حذف قادر به بازیابی این فایل نخواهید بود!",
+                    icon: "warning",
+                    buttons: {
+                        confirm : 'بله',
+                        cancel : 'خیر'
+                    },
+                    dangerMode: true
+                })
+                .then(function(willDelete) {
+                    if (willDelete) {
+                        deleteitem(id);
+                    }
+                    else {
+                        swal("فایل شما در امان است!", {
+                            icon: "error",
+                            button: "باشه"
+                        });
+                    }
+                });
+            }
+            
+
+            function deleteitem(id){
+               $.ajax({
+                   url: '/Gallery/Delete?id='+id,
+                   type: 'POST',
+                   dataType: 'json',
+                   success: function (data) {
+                       if(data.status){
+                           toastr.success(data.message);
+                           window.location.reload();
+                       }else{
+                           toastr.error(data.message);
+                       }
+                   },
+                   error: function (xhr, textStatus, errorThrown) {
+                       console.log('Error in Operation');
+                   }
+               });
+        }
+
+
+       function insert(){
+              toastr.options = {
+                  timeOut: 3000,
+                  progressBar: true,
+                  showMethod: "slideDown",
+                  hideMethod: "slideUp",
+                  showDuration: 200,
+                  hideDuration: 200
+              };
+
+          var itemId=@Context.Request.Query["itemId"];
+          var formData = new FormData();
+
+          formData.append("files", $("#image")[0].files[0]);
+
+          $.ajax({
+                   url: '/Gallery/Insert?itemId='+itemId,
+                   type: 'POST',
+                   data: formData,
+                   processData:false,
+                   contentType:false,
+                   success: function (data) {
+                       if(data.status){
+                           toastr.success(data.message);
+                           window.location.href= '/Gallery/Index?itemId='+itemId;
+                       }else{
+                           toastr.error(data.message);
+                       }
+                   },
+                   error: function (xhr, textStatus, errorThrown) {
+                       console.log('Error in Operation');
+                   }
+               });
+      }
+</script>

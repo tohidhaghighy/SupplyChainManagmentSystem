@@ -1,0 +1,232 @@
+﻿@using Schm.Core.DTO.Response.Shop
+@model ShopItemResponseDto
+
+<div class="single-product">
+    <div class="container">
+        <div class="address-bar">
+            <ul class="box-address">
+                <li class="item">
+                    <a class="trs-3" href="#">
+                        خانه
+                        <i class="fal fa-chevron-left"></i>
+                    </a>
+                </li>
+                <li class="item">
+                    <a class="trs-3" href="#">
+                        @Model.CategoryName
+                        <i class="fal fa-chevron-left"></i>
+                    </a>
+                </li>
+                <li class="item">
+                    <a class="trs-3" href="#">
+                        @Model.SubCategoryName
+                        <i class="fal fa-chevron-left"></i>
+                    </a>
+                </li>
+                <li class="item active">
+                    <a class="trs-3" href="#">
+                        @Model.Title
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="product">
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="gallery-product">
+                        <div id="big-pic" class="owl-carousel owl-theme">
+                            <div class="item">
+                                <img src="@Model.Image" alt="@Model.Title">
+                            </div>
+
+                        </div>
+
+                        <div id="thumbs" class="owl-carousel owl-theme">
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-lg-5 col-md-6">
+                    <div class="info-product">
+                        <div class="info-title">
+                            <span class="availability">
+                                <p class="mb-2">
+                                    موجود در انبار
+                                </p>
+                            </span>
+
+                            <span class="title">
+                                <h5 class="mb-3">
+                                    @Model.Title
+                                </h5>
+                            </span>
+
+                            <span class="category">
+                                <p>
+                                    @Model.CategoryName
+                                </p>
+                            </span>
+                        </div>
+
+                        <div class="info-section">
+                            <ul id="show-more" class="info-box">
+                                <span class="info-title mb-3">
+                                    ویژگی های محصول
+                                </span>
+                                @{
+                                    foreach (var item in Model.Options)
+                                    {
+                                        <li class="info-item mb-1">
+                                    <span class="if-label">
+                                        @item
+                                    </span>
+                                        </li>
+                                    }
+                                }
+
+                            </ul>
+                        </div>
+
+                        <div class="delivery f-parent">
+                            <div class="right">
+                                <h6>
+                                    ارسال توسط تامین کننده
+                                </h6>
+                            </div>
+                            <div class="left">
+                                <img src="/img/delivery-free.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @{
+                    if (Model.SupplierItem.Count() == 1)
+                    {
+                        <div class="col-lg-3 col-md-12">
+                    <div class="sales-info">
+
+                        <div class="quantity-product f-parent">
+                            <p class="title">
+                                تعداد محصول:
+                            </p>
+                            <a id="quantity-product" class="quantity" onclick="">
+                                <input type="button" value="-" class="button qtyminus minus trs-3" field="quantity" />
+                                <input type="text" name="quantity" id="quantity" value="1" class="qty" />
+                                <input type="button" value="+" class="button qtyplus plus trs-3" field="quantity" />
+                            </a>
+                        </div>
+
+                        <div class="price-product">
+                            <p class="title">
+                                قیمت محصول:
+                            </p>
+                            <div class="price">
+                                <ins>
+                                    @Model.SupplierItem.Where(a=>a.SupplierId==Model.DefaultSupplierId).FirstOrDefault().Cost ریال
+                                </ins>
+                            </div>
+                        </div>
+
+                        <div class="sale-button">
+                            <a class="trs-3" onclick="AddtoBasket(@Model.Id,@Model.DefaultSupplierId,'@Model.Title','@Model.Image',@Model.SupplierItem.Where(a=>a.SupplierId==Model.DefaultSupplierId).FirstOrDefault().Cost)">
+                                افزودن به سبد خرید
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+                    }
+                }
+                
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@{
+    if (Model.SupplierItem.Count() > 1)
+    {
+                <!-- ---------- Cart Page ---------- -->
+        <div class="shop-cart">
+            <div class="container">
+
+                <div class="cart">
+                    <div class="row">
+
+                        <div class="col-lg-12 col-12">
+                            <div class="products-cart">
+                                <div class="title">
+                                    <h5>
+                                        تامین کننده های دیگر
+                                    </h5>
+                                </div>
+
+                                <div class="product-box">
+                                    <table>
+                                        <tbody>
+                                        @{
+                                            foreach (var item in Model.SupplierItem)
+                                            {
+                                                 <tr>
+                                                <td>
+                                                    <img src="@Model.Image" alt="@Model.Title">
+                                                </td>
+
+                                                <td>
+                                                    <a class="name trs-3" href="/Shop/Item?itemId=@Model.Id&supplierId=@item.SupplierId">
+                                                        @Model.Title
+                                                    </a>
+                                                    <span class="category">
+                                                        @Model.CategoryName
+                                                    </span>
+                                                    <span class="price">
+                                                        @item.Cost ریال
+                                                    </span>
+                                                </td>
+
+                                                <td>
+                                                    <a class="remove trs-3" href="/Shop/Item?itemId=@Model.Id&supplierId=@item.SupplierId">
+                                                        افزودن به سبد خرید
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            }
+                                        }
+                                           
+
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+ }
+
+ <script>
+   function AddtoBasket(itemid,supplierid,title,image,price){
+          var count = $('#quantity').val();
+          var model={ItemId:itemid,ItemName:title,Image:image,Count:count,Price:price,SupplierId:supplierid};
+          $.ajax({
+          type: "Post",
+          url: '/Basket/AddToBasket',
+          data: model,
+          success: function (data) {
+              if (data.status==200){
+                   window.location.href="/Cart/Index";
+              }else{
+                 alert(data.message);
+              }
+          }
+      });
+   }
+ </script>

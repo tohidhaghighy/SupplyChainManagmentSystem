@@ -1,0 +1,41 @@
+2023-04-18T11:04:11.9469390+02:00 0HMPVTFF8J42A:00000002 [INF] Executed DbCommand ("46"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [b].[Id], [b].[Description], [b].[ImageUrl], [b].[IsActive], [b].[Title]
+FROM [BrandType] AS [b]" (0723d8ff)
+2023-04-18T11:04:12.5766218+02:00 0HMPVTFF8J42B:00000002 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[IsActive], [i].[Title]
+FROM [ItemCatagory] AS [i]" (0723d8ff)
+2023-04-18T11:04:12.6223893+02:00 0HMPVTFF8J42C:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[IsActive], [i].[Title]
+FROM [ItemUnitType] AS [i]" (0723d8ff)
+2023-04-18T11:04:12.7930429+02:00 0HMPVTFF8J42D:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [m].[Id], [m].[BrandTypeId], [m].[IsActive], [m].[Title]
+FROM [ModelType] AS [m]" (0723d8ff)
+2023-04-18T11:04:13.1803933+02:00 0HMPVTFF8J42D:00000002 [INF] Executed DbCommand ("55"ms) [Parameters=["@__SearchCntx_Title_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [m].[Id], [m].[BrandTypeId], [m].[IsActive], [m].[Title]
+FROM [ModelType] AS [m]
+WHERE (@__SearchCntx_Title_0 LIKE N'') OR CHARINDEX(@__SearchCntx_Title_0, [m].[Title]) > 0" (0723d8ff)
+2023-04-18T11:04:13.2107071+02:00 0HMPVTFF8J42E:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[IsActive], [i].[ItemCatagoryId], [i].[Title]
+FROM [ItemSubCatagory] AS [i]" (0723d8ff)
+2023-04-18T11:04:13.2329451+02:00 0HMPVTFF8J42E:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=["@__SearchCntx_Title_0='?' (Size = 4000), @__SearchCntx_ItemCategoryId_1='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[IsActive], [i].[ItemCatagoryId], [i].[Title]
+FROM [ItemSubCatagory] AS [i]
+WHERE ((@__SearchCntx_Title_0 LIKE N'') OR CHARINDEX(@__SearchCntx_Title_0, [i].[Title]) > 0) AND [i].[ItemCatagoryId] = @__SearchCntx_ItemCategoryId_1" (0723d8ff)
+2023-04-18T11:04:16.2972072+02:00 0HMPVTFF8J42F:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [m].[Id], [m].[BrandTypeId], [m].[IsActive], [m].[Title]
+FROM [ModelType] AS [m]" (0723d8ff)
+2023-04-18T11:04:16.3105511+02:00 0HMPVTFF8J42G:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[IsActive], [i].[ItemCatagoryId], [i].[Title]
+FROM [ItemSubCatagory] AS [i]" (0723d8ff)
+2023-04-18T11:04:16.3195049+02:00 0HMPVTFF8J42H:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[IsActive], [i].[Title]
+FROM [ItemUnitType] AS [i]" (0723d8ff)
+2023-04-18T11:04:25.3149166+02:00 0HMPVTFF8J42I:00000002 [INF] XXXItemService (4f494a63)
+2023-04-18T11:04:26.2799574+02:00 0HMPVTFF8J42I:00000002 [INF] fffffff (0bbbbeea)
+2023-04-18T11:04:26.2907851+02:00 0HMPVTFF8J42I:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[Description], [i].[InternalCode], [i].[IsActive], [i].[ItemSubCatagoryId], [i].[ItemUnitTypeId], [i].[ModelTypeId], [i].[StandardCode], [i].[Title]
+FROM [Items] AS [i]" (0723d8ff)
+2023-04-18T11:04:26.3196820+02:00 0HMPVTFF8J42I:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=["@__SearchCntx_Description_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [i].[Id], [i].[Description], [i].[InternalCode], [i].[IsActive], [i].[ItemSubCatagoryId], [i].[ItemUnitTypeId], [i].[ModelTypeId], [i].[StandardCode], [i].[Title]
+FROM [Items] AS [i]
+WHERE (@__SearchCntx_Description_0 LIKE N'') OR CHARINDEX(@__SearchCntx_Description_0, [i].[Description]) > 0" (0723d8ff)

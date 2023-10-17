@@ -1,0 +1,77 @@
+﻿
+<div class="row">
+    <div class="col-md-12">
+
+        <div class="card">
+            <div class="card-body">
+                <h6 class="card-title">ثبت برند جدید</h6>
+                <form>
+                    <div class="row">
+                        <div class="col-md-6 col-sm-12 col-lg-6">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">عنوان </label>
+                                <input type="text" class="form-control text-left" id="title" placeholder="عنوان" dir="ltr">
+                            </div>
+                            
+                        </div>
+                         <div class="col-md-6 col-sm-12 col-lg-6">
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">توضیحات </label>
+                                <input type="text" class="form-control text-left" id="description" placeholder="توضیحات " dir="ltr">
+                            </div>
+                        </div>
+                         <div class="col-md-6 col-sm-12 col-lg-6">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">عکس </label>
+                                <input type="file" class="form-control text-left" id="image" placeholder="عکس" dir="ltr">
+                            </div>
+                        </div>
+                    </div>
+                    <a class="btn btn-primary float-left" onclick="insert()">ثبت </a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script>
+                function insert(){
+                        toastr.options = {
+                            timeOut: 3000,
+                            progressBar: true,
+                            showMethod: "slideDown",
+                            hideMethod: "slideUp",
+                            showDuration: 200,
+                            hideDuration: 200
+                        };
+
+
+                    var title=$('#title').val();
+                    var description=$('#description').val();
+                    var input = document.getElementById("image");
+                    var files = input.files;
+                    var formData = new FormData();
+
+                    if(title.length<3){toastr.error("نباید عنوان کوچکتر از 3 حرف باشد");return;}
+                    formData.append("files", $("#image")[0].files[0]);
+
+                    $.ajax({
+                             url: '/Brand/Insert?title='+title+'&description='+description,
+                             type: 'POST',
+                             data: formData,
+                             processData:false,
+                             contentType:false,
+                             success: function (data) {
+                                 if(data.status){
+                                     toastr.success(data.message);
+                                     window.location.href= '/Brand/Index';
+                                 }else{
+                                     toastr.error(data.message);
+                                 }
+                             },
+                             error: function (xhr, textStatus, errorThrown) {
+                                 console.log('Error in Operation');
+                             }
+                         });
+                }
+    </script>

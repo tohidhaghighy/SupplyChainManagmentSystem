@@ -1,0 +1,61 @@
+﻿@using Schm.EndUser.UI.Infrastructure.Model
+@model List<Basket>
+
+<table>
+    <tbody>
+        @{
+            double totalBasketCost = 0;
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <img src="@item.Image" alt="@item.ItemName">
+                    </td>
+
+                    <td>
+                        <a class="name trs-3" href="#">
+                            @item.ItemName
+                        </a>
+                        <span class="price">
+                            @item.Price ریال
+                        </span>
+                    </td>
+
+                    <td>
+                        <a id="quantity-product" class="quantity">
+                            <input type="button" value="-" class="button qtyminus minus trs-3"
+                               field="quantity" onclick="DecreaseBaskte(@item.ItemId)">
+                            <input type="text" name="quantity" value="@item.Count" class="qty">
+                            <input type="button" value="+" class="button qtyplus plus trs-3"
+                               field="quantity" onclick="IncreaseBaskte(@item.ItemId)">
+                        </a>
+                    </td>
+
+                    <td>
+                        <span class="total-price">
+                            @{
+                                var totalPrice = item.Price * item.Count;
+                                totalBasketCost += totalPrice;
+                            }
+                            @totalPrice  ریال
+                        </span>
+                    </td>
+
+                    <td>
+                        <a class="remove trs-3" onclick="removefrombasket(@item.ItemId)">
+                            حذف
+                        </a>
+                    </td>
+                </tr>
+            }
+        }
+
+
+    </tbody>
+</table>
+
+<div class="button f-parent">
+    <a class="back trs-3" href="/">
+        بازگشت
+    </a>
+</div>

@@ -1,0 +1,9 @@
+﻿@using Schm.UI.Infrastructure.Models
+@model List<KeyValue<int>>
+
+@{
+    foreach (var item in Model)
+    {
+        <option value="@item.Key"> @item.Value </option>
+    }
+}

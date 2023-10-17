@@ -1,0 +1,216 @@
+﻿@using Schm.EndUser.UI.Infrastructure.Model
+@model List<Basket>
+
+<div class="shop-cart">
+    <div class="container">
+        <div class="address-bar">
+            <ul class="box-address">
+                <li class="item">
+                    <a class="trs-3" href="#">
+                        خانه
+                        <i class="fal fa-chevron-left"></i>
+                    </a>
+                </li>
+                <li class="item active">
+                    <a class="trs-3" href="#">
+                        پرداخت هزینه
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="cart">
+            <div class="row">
+                <div class="col-12">
+                    <div class="checkout-steps">
+                        <ul class="steps f-parent">
+                            <li class="item active">
+                                <span class="text">
+                                    سبد خرید
+                                </span>
+                                <span class="circle"></span>
+                            </li>
+
+                            <li class="item active">
+                                چک کردن صحت اطلاعات
+                                <span class="circle"></span>
+                            </li>
+
+                            <li class="item active">
+                                پرداخت هزینه
+                                <span class="circle"></span>
+                            </li>
+
+                            <li class="item">
+                                اتمام خرید
+                                <span class="circle"></span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-9 col-12" style="margin-bottom: 20px;">
+                    <div class="pyment">
+                        <div class="title">
+                            <h5>
+                                روش پرداخت
+                            </h5>
+                        </div>
+
+                        <div class="pyment-box">
+                            <div class="payment-method">
+                                <div class="row">
+
+                                    <div class="col-md-3 col-sm-6 col-12">
+                                        <div class="item">
+                                            <a class="trs-3" href="#">
+                                                <span class="icon">
+                                                    <i class="fad fa-wallet"></i>
+                                                </span>
+                                                <span class="text">
+                                                    پرداخت انلاین
+                                                </span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-9 col-12">
+                    <div class="pyment">
+                        <div class="title">
+                            <h5>
+                                روش ارسال
+                            </h5>
+                        </div>
+
+                        <div class="pyment-box">
+                            <div class="payment-method">
+                                <div class="row">
+
+                                    <div class="col-md-3 col-sm-6 col-12">
+                                        <div class="item">
+                                            <a class="trs-3" href="#">
+                                                <span class="icon">
+                                                    <i class="fad fa-money-bill"></i>
+                                                </span>
+                                                <span class="text">
+                                                    ارسال تامین کننده
+                                                </span>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="order-summary">
+                                <ul class="summary-box">
+                                    <li class="item">
+                                        <span class="label">
+                                            تعداد مرسولات
+                                        </span>
+                                        <span class="value">
+                                            @Model.Count() محصول
+                                        </span>
+                                    </li>
+
+                                    <li class="item">
+                                        <span class="label">
+                                            روش ارسال
+                                        </span>
+                                        <span class="value">
+                                            از طریق تامین کننده
+                                        </span>
+                                    </li>
+
+                                    <li class="item">
+                                        <span class="label">
+                                            زمان ارسال
+                                        </span>
+                                        <span class="value">
+                                            3 روز کاری
+                                        </span>
+                                    </li>
+
+                                    <li class="item">
+                                        <span class="label">
+                                            آدرس
+                                        </span>
+                                        <span class="value">
+                                            
+                                        </span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-12">
+                    <div class="price-cart">
+                        <div class="title">
+                            <h6>
+                                هزینه سفارشات
+                            </h6>
+                        </div>
+
+                        <div class="info">
+                            <div class="price">
+                                <div class="subtotal f-parent">
+                                    <span class="label">
+                                        قیمت
+                                    </span>
+                                    <span class="value">
+                                        @ViewBag.TotalPrice ریال
+                                    </span>
+                                </div>
+
+                                <div class="total f-parent">
+                                    <span class="label">
+                                        قیمت کل
+                                    </span>
+                                    <span class="value">
+                                        @ViewBag.TotalPrice ریال
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="payment-btn">
+                                <a class="trs-3" href="/Order/Index">
+                                    اقدام به پرداخت
+                                </a>
+                            </div>
+                            <span class="back">
+                                <a class="trs-3" href="/">
+                                    برگشت به فروشگاه
+                                </a>
+                            </span>
+                        </div>
+
+                        <div class="services">
+                            <ul class="services-box">
+                                <li class="item">
+                                    <i class="fal fa-undo"></i>
+                                    هفت روز ضمانت بازگشت کالا
+                                </li>
+                                <li class="item">
+                                    <i class="fal fa-shield-check"></i>
+                                    ﺿﻤﺎﻧﺖ اﺻﻞ ﺑﻮدن ﮐﺎﻟﺎ
+                                </li>
+                                <li class="item">
+                                    <i class="fal fa-phone"></i>
+                                    شماره پشتیبانی 021-0000000
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
